@@ -1,123 +1,144 @@
-import React, { Component } from 'react';
-import { sendContactMail } from '../networking/mail-api';
+import React, { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
-class Form extends Component {
-  state = {
-    isActive: false,
-    formButtonDisabled: false,
-    formButtonText: 'Send',
-    email: '',
-    subject: '',
-    content: ''
-  };
+type Inputs = {
+  email: string;
+  subject: string;
+  message: string;
+  values: string;
+};
 
-  handleShow: React.MouseEventHandler = () => {
-    this.setState({
-      isActive: true
-    });
-  };
+export default function Form(): React.ReactElement {
+  //Form Handler
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    setValue,
+    setError
+  } = useForm<Inputs>();
 
-  handleHide: React.MouseEventHandler = () => {
-    this.setState({
-      isActive: false
-    });
-  };
-  render(): React.ReactElement {
-    const {
-      formButtonDisabled,
-      formButtonText,
-      email,
-      subject,
-      content
-    } = this.state;
-    const btnSubmit = formButtonDisabled ? 'disabled' : 'btnSubmit';
-
-    return (
-      <form>
-        <div className="form-group">
-          <input
-            type="email"
-            placeholder="Email"
-            className="form-control"
-            name="email"
-            value={email}
-            required={true}
-            onChange={this.onEmailChange}
-          />
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Subject"
-            className="form-control"
-            name="subject"
-            required={true}
-            value={subject}
-            onChange={this.onSubjectChange}
-          />
-          <label htmlFor="subject" className="form-label">
-            Subject
-          </label>
-        </div>
-        <div className="form-group">
-          <textarea
-            className="form-control"
-            placeholder="Message"
-            cols={30}
-            rows={8}
-            name="message"
-            required={true}
-            value={content}
-            onChange={this.onContentChange}
-          />
-          <label htmlFor="message" className="messaging">
-            Message
-          </label>
-        </div>
-        <>
-          <div className="form-btn">
-            <input
-              type="submit"
-              disabled={formButtonDisabled}
-              className={btnSubmit}
-              onClick={this.submitForm}
-              value={formButtonText}
-            />
-          </div>
-        </>
-      </form>
-    );
-  }
-  onEmailChange: any = (event) => {
-    this.setState({ email: event.target.value });
-  };
-  onSubjectChange: any = (event) => {
-    this.setState({ subject: event.target.value });
-  };
-  onContentChange: any = (event) => {
-    this.setState({ content: event.target.value });
-  };
-  submitForm: React.MouseEventHandler = async (event) => {
-    event.preventDefault();
-
-    const recipient = process.env.MAIL;
-    const { email, subject, content } = this.state;
-    const res = await sendContactMail(recipient, email, subject, content);
-    if (res.status < 300) {
-      this.setState({
-        formButtonDisabled: true,
-        formButtonText: 'I will be in touch soon!',
-        email: '',
-        subject: '',
-        content: ''
+  async function onSubmitForm(value) {
+    try {
+      //config
+      const response = await axios({
+        method: 'POST',
+        url: `/api/contact`,
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        data: value
       });
-    } else {
-      this.setState({ formButtonText: 'Please Fill all fields' });
+      if (response.status == 200) {
+        console.log('Success');
+        reset();
+      }
+    } catch (err) {
+      console.error(err);
     }
-  };
-}
+  }
+  //use to be refs, event listeners
+  useEffect(() => {
+    register('email', {
+      required: {
+        value: true,
+        message: 'Please Enter Your Email'
+      },
+      minLength: {
+        value: 8,
+        message: 'This is not a long enough email address'
+      },
+      maxLength: {
+        value: 39,
+        message: 'This is too long for an email'
+      }
+    });
+    register('subject', {
+      required: {
+        value: true,
+        message: 'Please Enter A Subject'
+      }
+    });
+    register('message', {
+      required: {
+        value: true,
+        message: 'Please let me Know what I can help with'
+      }
+    });
+  }, []);
 
-export default Form;
+  //Form
+  return (
+    <form onSubmit={handleSubmit(onSubmitForm)}>
+      <div className="form-group">
+        <input
+          type="email"
+          placeholder="Email"
+          className="form-control"
+          name="email"
+          onChange={(e) => {
+            const value = e.target.value;
+            if (value === ' ') {
+              setError('email', { shouldFocus: true });
+            } else {
+              setValue('email', e.target.value);
+            }
+          }}
+        />
+        <label htmlFor="email" className="form-label">
+          Email
+        </label>
+        <span className="error-form">{errors?.email?.message}</span>
+      </div>
+      <div className="form-group">
+        <input
+          type="text"
+          placeholder="Subject"
+          className="form-control"
+          name="subject"
+          onChange={(e) => {
+            const value = e.target.value;
+            if (value === ' ') {
+              setError('subject', { shouldFocus: true });
+            } else {
+              setValue('subject', e.target.value);
+            }
+          }}
+        />
+        <label htmlFor="subject" className="form-label">
+          Subject
+        </label>
+        <span className="error-form">{errors?.subject?.message}</span>
+      </div>
+      <div className="form-group">
+        <textarea
+          className="form-control"
+          placeholder="Message"
+          cols={30}
+          rows={8}
+          name="message"
+          onChange={(e) => {
+            const value = e.target.value;
+            if (value === ' ') {
+              setError('message', { shouldFocus: true });
+            } else {
+              setValue('message', e.target.value);
+            }
+          }}
+        />
+        <label htmlFor="message" className="messaging">
+          Message
+        </label>
+        <span className="error-form">{errors?.message?.message}</span>
+      </div>
+      <>
+        <div className="form-btn">
+          <input type="submit" className="btnSubmit" value="Submit" />
+        </div>
+      </>
+    </form>
+  );
+}

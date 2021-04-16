@@ -29,13 +29,19 @@ function Contact(): React.ReactElement {
   return (
     <section className="contact">
       <div className="contact-title">
-        <Image src="/assets/contact-title.svg" height={670} width={700} />
+        <Image src="/assets/contact-title.svg" height={370} width={700} />
         {/* <ContactTitle /> */}
       </div>
       <div className="contact-container">
         <motion.span ref={ref} animate={animation}>
           <Form />
         </motion.span>
+        <Image
+          className="contactSVG"
+          src="/assets/Group 7.svg"
+          height={330}
+          width={300}
+        />
       </div>
     </section>
   );

@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-const Hamburger: React.FC = () => {
+const MobileMenu: React.FC = () => {
   const { ref, inView } = useInView({ threshold: 1 });
   const animation = useAnimation();
 
@@ -21,9 +21,6 @@ const Hamburger: React.FC = () => {
       });
     }
   }, [inView]);
-  // figure out
-  //   opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
-  //     top: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
 
   return (
     <motion.div className="hamburger" animate={animation} ref={ref}>
@@ -72,4 +69,4 @@ const Hamburger: React.FC = () => {
   );
 };
 
-export default Hamburger;
+export default MobileMenu;
