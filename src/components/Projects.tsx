@@ -16,15 +16,17 @@ function Projects(): React.ReactElement {
     <section className="projects">
       <div>
         <h2
+          className="proj-title"
           style={{
             transform: `translateY(${offsetY * 0.5}px) rotate(180deg)`
           }}
         >
           Projects
         </h2>
+        <h2 className="watermark">Projects</h2>
       </div>
 
-      <div className="grid">
+      <div className="list">
         <span className="one">
           <Cards
             imageUrl="/assets/Logo blue.svg"
@@ -66,7 +68,7 @@ function Projects(): React.ReactElement {
         </span>
       </div>
       <div
-        className="circle"
+        className="graphic"
         style={{ transform: `translateY(-${offsetY * 0.5}px)` }}
       >
         <Image

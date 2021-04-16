@@ -33,36 +33,34 @@ const Hero: React.FC = () => {
       </div>
       <div className={styles.container}>
         <motion.div
+          className={styles.image}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
         >
-          <Image
-            className={styles.image}
-            src="/Icon.svg"
-            height={330}
-            width={300}
-          />
+          <Image src="/Icon.svg" height={330} width={300} />
         </motion.div>
-        <Typewriter
-          options={{ loop: true }}
-          onInit={(typewriter) => {
-            typewriter
-              .typeString('Web Developer')
-              .pauseFor(2500)
-              .deleteAll()
-              .typeString('UI/UX Designer')
-              .pauseFor(2500)
-              .deleteAll()
-              // .typeString('Mobile Developer')
-              // .pauseFor(2500)
-              // .deleteAll()
-              // .typeString('Blockchain Developer')
-              // .pauseFor(2500)
-              // .deleteAll()
-              .start();
-          }}
-        />
+        <div className={styles.type}>
+          <Typewriter
+            options={{ loop: true }}
+            onInit={(typewriter) => {
+              typewriter
+                .typeString('Web Developer')
+                .pauseFor(2500)
+                .deleteAll()
+                .typeString('UI/UX Designer')
+                .pauseFor(2500)
+                .deleteAll()
+                // .typeString('Mobile Developer')
+                // .pauseFor(2500)
+                // .deleteAll()
+                // .typeString('Blockchain Developer')
+                // .pauseFor(2500)
+                // .deleteAll()
+                .start();
+            }}
+          />
+        </div>
         <div className={styles.nav}>
           <Link
             to="projects"

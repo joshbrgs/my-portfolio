@@ -42,7 +42,13 @@ function About(): React.ReactElement {
             objectPosition="absolute"
           />
         </motion.span>
-        <h2 style={{ transform: `translateY(${offsetY * 0.1}px)` }}>About</h2>
+        <h2
+          className="about-title"
+          style={{ transform: `translateY(${offsetY * 0.1}px)` }}
+        >
+          About
+        </h2>
+        <h2 className="watermark_2">About</h2>
         <div className="underline" ref={ref}></div>
         <motion.p
           animate={{ x: 0, opacity: 1 }}

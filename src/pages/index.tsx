@@ -7,7 +7,7 @@ import Hero from '../components/Hero';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import About from '../components/About';
-import Hamburger from '../components/parts/LowMenu';
+import MobileMenu from '../components/parts/MobileMenu';
 
 //Landing Page
 const Home: React.FC = () => {
@@ -15,11 +15,11 @@ const Home: React.FC = () => {
     <>
       <Hero />
       <Nav />
-      <Hamburger />
       <Projects />
       <Contact />
       <About />
       <Footer />
+      <MobileMenu />
     </>
   );
 };
