@@ -1,6 +1,5 @@
 import Cards from '../components/parts/Cards';
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 
 function Projects(): React.ReactElement {
   const [offsetY, setOffsetY] = useState(0);
@@ -71,12 +70,7 @@ function Projects(): React.ReactElement {
         className="graphic"
         style={{ transform: `translateY(-${offsetY * 0.5}px)` }}
       >
-        <Image
-          src="/assets/Lined.svg"
-          height={270}
-          width={250}
-          objectPosition="absolute"
-        />
+        <img src="/assets/Lined.svg" height={270} width={250} />
       </div>
       <h3>Always Adding More!</h3>
     </section>

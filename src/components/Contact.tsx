@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import Form from './parts/Form';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Image from 'next/image';
 // import ContactTitle from './parts/ContactTitle';
 
 function Contact(): React.ReactElement {
@@ -29,7 +28,7 @@ function Contact(): React.ReactElement {
   return (
     <section className="contact">
       <div className="contact-title">
-        <Image
+        <img
           src="/assets/contact-title.svg"
           height={370}
           width={700}
@@ -43,7 +42,7 @@ function Contact(): React.ReactElement {
           <Form />
         </motion.span>
         <div className="contactSVG">
-          <Image src="/assets/Group 7.svg" height={330} width={300} />
+          <img src="/assets/Group 7.svg" height={330} width={300} />
         </div>
       </div>
     </section>

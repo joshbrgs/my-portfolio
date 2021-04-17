@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-scroll';
 import { animateScroll as scroll } from 'react-scroll';
 import SocialIcons from '../components/parts/SocialIcons';
-import Image from 'next/image';
 import styles from '../styles/Hero.module.scss';
 import { motion } from 'framer-motion';
 import Typewriter from 'typewriter-effect';
@@ -144,7 +143,7 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
         >
-          <Image src="/assets/Icon.svg" height={330} width={300} />
+          <img src="/assets/Icon.svg" height={330} width={300} />
         </motion.div>
         <div className={styles.type}>
           <Typewriter

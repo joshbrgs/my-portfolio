@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import SocialIcons from './parts/SocialIcons';
 import React, { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
@@ -15,6 +14,7 @@ function About(): React.ReactElement {
   }, []);
   const { ref, inView } = useInView();
   const animation = useAnimation();
+  const anim = useAnimation();
 
   useEffect(() => {
     if (inView) {
@@ -31,16 +31,26 @@ function About(): React.ReactElement {
     }
   }, [inView]);
 
+  useEffect(() => {
+    if (inView) {
+      anim.start({
+        opacity: 1,
+        x: 0,
+        transition: { type: 'spring', duration: 1, delay: 0.8 }
+      });
+    } else {
+      anim.start({
+        opacity: 0,
+        x: 50
+      });
+    }
+  }, [inView]);
+
   return (
     <section className="about">
       <div className="bio-container">
         <motion.span className="bubbles" animate={animation} ref={ref}>
-          <Image
-            src="/assets/Grid.svg"
-            height={270}
-            width={250}
-            objectPosition="absolute"
-          />
+          <img src="/assets/Grid.svg" height={270} width={250} />
         </motion.span>
         <h2
           className="about-title"
@@ -51,9 +61,10 @@ function About(): React.ReactElement {
         <h2 className="watermark_2">About</h2>
         <div className="underline" ref={ref}></div>
         <motion.p
-          animate={{ x: 0, opacity: 1 }}
-          initial={{ x: 50, opacity: 0 }}
-          transition={{ duration: 1, delay: 15 }}
+          animate={animation}
+          // initial={{ x: 50, opacity: 0 }}
+          // transition={{ duration: 1, delay: 15 }}
+          ref={ref}
         >
           Most of my experience is in Front End Developement, but I love the
           whole process of building apps, Back Ends, and programs. I graduated
@@ -63,9 +74,10 @@ function About(): React.ReactElement {
           I was down the rabbit hole of learning code.
         </motion.p>
         <motion.p
-          animate={{ x: 0, opacity: 1 }}
-          initial={{ x: -50, opacity: 0 }}
-          transition={{ duration: 1, delay: 17 }}
+          animate={anim}
+          // initial={{ x: -50, opacity: 0 }}
+          // transition={{ duration: 1, delay: 17 }}
+          ref={ref}
         >
           The libraries and frameworks I tend to use are <b>React</b> and{' '}
           <b>NextJS</b>, <b>Jest</b>, <b>Web3</b>, <b>Truffle</b>, and{' '}
@@ -77,9 +89,10 @@ function About(): React.ReactElement {
           <b>Golang</b>, <b>NodeJS</b>, and <b>Kotlin</b>.
         </motion.p>
         <motion.p
-          animate={{ x: 0, opacity: 1 }}
-          initial={{ x: 50, opacity: 0 }}
-          transition={{ duration: 1, delay: 19 }}
+          animate={animation}
+          // initial={{ x: 50, opacity: 0 }}
+          // transition={{ duration: 1, delay: 19 }}
+          ref={ref}
         >
           I love learning new tech, and trying new things. The reason I find
           this industry so interesting is because of the endless possibilities
@@ -92,7 +105,7 @@ function About(): React.ReactElement {
         </span>
       </div>
       <div className="skill">
-        <Image src="/assets/Josh Burgess Logo.svg" height={400} width={400} />
+        <img src="/assets/Josh Burgess Logo.svg" height={400} width={400} />
       </div>
     </section>
   );
