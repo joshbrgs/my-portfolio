@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/pages/api/contact.ts"  ],
   "exclude": [
     "node_modules"
   ]

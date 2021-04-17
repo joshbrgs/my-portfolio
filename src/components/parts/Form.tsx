@@ -20,21 +20,22 @@ export default function Form(): React.ReactElement {
     setError
   } = useForm<Inputs>();
 
-  async function onSubmitForm(value) {
+  async function onSubmitForm(value, e) {
+    e.target.reset();
     try {
       //config
       const response = await axios({
-        method: 'POST',
-        url: `/api/contact`,
+        method: 'post',
+        url: '/api/contact',
         headers: {
           Accept: 'application/json, text/plain, */*',
           'Content-Type': 'application/json'
         },
         data: value
       });
+
       if (response.status == 200) {
         console.log('Success');
-        reset();
       }
     } catch (err) {
       console.error(err);
@@ -132,7 +133,7 @@ export default function Form(): React.ReactElement {
         <label htmlFor="message" className="messaging">
           Message
         </label>
-        <span className="error-form">{errors?.message?.message}</span>
+        <span className="error-form me">{errors?.message?.message}</span>
       </div>
       <>
         <div className="form-btn">
