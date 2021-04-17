@@ -55,7 +55,7 @@ function Projects(): React.ReactElement {
         </span>
         <span className="three">
           <Cards
-            imageUrl="/Icon.svg"
+            imageUrl="/assets/Icon.svg"
             title="My Portfolio Site"
             body="This is the site you are currently on! You can also checkout my blog (coming soon) or type a wrong url to see the 404. Built with NextJS."
             button2="Visit Blog"

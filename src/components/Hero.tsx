@@ -144,7 +144,7 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
         >
-          <Image src="/Icon.svg" height={330} width={300} />
+          <Image src="/assets/Icon.svg" height={330} width={300} />
         </motion.div>
         <div className={styles.type}>
           <Typewriter
