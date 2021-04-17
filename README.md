@@ -2,6 +2,8 @@
 
 [Live Site](https://www.joshb.io)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/754dd9ed-87a1-4a87-8250-f53cf1fdaebe/deploy-status)](https://app.netlify.com/sites/portfoliojb/deploys)
+
 ## Description
 
 This is my personal portfolio site to display my projects, blog, and resume in a fascinating way.
