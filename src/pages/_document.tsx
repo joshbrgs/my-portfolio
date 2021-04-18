@@ -16,6 +16,7 @@ class MyDocument extends Document {
           <meta name="author" content="Josh Burgess" />
           <meta property="og:title" content="Josh's Portfolio" />
           <meta property="og:image" content="https://www.joshb.io" />
+          <link rel="apple-touch-icon" href="/favicon.ico" />
 
           {/* Twitter Card */}
           <meta name="twitter:card" content="summary" />
