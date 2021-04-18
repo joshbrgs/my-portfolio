@@ -8,11 +8,14 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="icon" href="/favicon.ico" />
+          <title>Josh's Portfolio</title>
           <meta
             name="description"
             content="Josh Burgess's Web Portfolio. Experience something more than just another website, and if you like what you see, let's work together and make something creative for you!"
           />
           <meta name="author" content="Josh Burgess" />
+          <meta property="og:title" content="Josh's Portfolio" />
+          <meta property="og:image" content="https://www.joshb.io" />
 
           {/* Twitter Card */}
           <meta name="twitter:card" content="summary" />
