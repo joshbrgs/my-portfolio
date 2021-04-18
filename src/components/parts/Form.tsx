@@ -15,7 +15,6 @@ export default function Form(): React.ReactElement {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
     setValue,
     setError
   } = useForm<Inputs>();

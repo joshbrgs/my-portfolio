@@ -50,7 +50,7 @@ function About(): React.ReactElement {
     <section className="about">
       <div className="bio-container">
         <motion.span className="bubbles" animate={animation} ref={ref}>
-          <img src="/assets/Grid.svg" height={270} width={250} />
+          <img src="/assets/Grid.svg" height={270} width={250} alt="" />
         </motion.span>
         <h2
           className="about-title"
@@ -105,7 +105,12 @@ function About(): React.ReactElement {
         </span>
       </div>
       <div className="skill">
-        <img src="/assets/Josh Burgess Logo.svg" height={400} width={400} />
+        <img
+          src="/assets/Josh Burgess Logo.svg"
+          height={400}
+          width={400}
+          alt=""
+        />
       </div>
     </section>
   );

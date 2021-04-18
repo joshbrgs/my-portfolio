@@ -143,9 +143,9 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
         >
-          <img src="/assets/Icon.svg" height={330} width={300} />
+          <img src="/assets/Icon.svg" height={330} width={300} alt="Icon" />
         </motion.div>
-        <div className={styles.type}>
+        <title className={styles.type}>
           <Typewriter
             options={{ loop: true }}
             onInit={(typewriter) => {
@@ -165,7 +165,7 @@ const Hero: React.FC = () => {
                 .start();
             }}
           />
-        </div>
+        </title>
         <div className={styles.nav}>
           <Link
             to="projects"
