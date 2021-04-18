@@ -4,37 +4,37 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   // const { email, subject, message } = req.body;
-  const client_ID = process.env.CLIENT_ID;
-  const client_secret = process.env.CLIENT_SECRET;
-  const Redirect_URI = process.env.REDIRECT_URI;
-  const Refresh_token = process.env.REFRESH_TOKEN;
-
-  const oAuth2Client = new google.auth.OAuth2(
-    client_ID,
-    client_secret,
-    Redirect_URI
-  );
-  oAuth2Client.setCredentials({
-    refresh_token: Refresh_token
-  });
-
-  const accessToken = oAuth2Client.getAccessToken();
-
-  const auth = {
-    type: 'OAuth2',
-    user: process.env.MAIL,
-    clientId: client_ID,
-    clientSecret: client_secret,
-    refreshToken: Refresh_token,
-    accessToken: accessToken
-  };
-
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: auth
-  });
-
   try {
+    const client_ID = process.env.CLIENT_ID;
+    const client_secret = process.env.CLIENT_SECRET;
+    const Redirect_URI = process.env.REDIRECT_URI;
+    const Refresh_token = process.env.REFRESH_TOKEN;
+
+    const oAuth2Client = new google.auth.OAuth2(
+      client_ID,
+      client_secret,
+      Redirect_URI
+    );
+    oAuth2Client.setCredentials({
+      refresh_token: Refresh_token
+    });
+
+    const accessToken = oAuth2Client.getAccessToken();
+
+    const auth = {
+      type: 'OAuth2',
+      user: process.env.MAIL,
+      clientId: client_ID,
+      clientSecret: client_secret,
+      refreshToken: Refresh_token,
+      accessToken: accessToken
+    };
+
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: auth
+    });
+
     const emailRes = await transporter.sendMail({
       from: req.body.email,
       to: process.env.MAIL,
