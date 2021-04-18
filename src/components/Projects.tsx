@@ -70,7 +70,7 @@ function Projects(): React.ReactElement {
         className="graphic"
         style={{ transform: `translateY(-${offsetY * 0.5}px)` }}
       >
-        <img src="/assets/Lined.svg" height={270} width={250} alt=" " />
+        <img src="/assets/Lined.svg" height={270} width={250} alt="flare" />
       </div>
       <h3>Always Adding More!</h3>
     </section>

@@ -32,7 +32,7 @@ function Contact(): React.ReactElement {
           className="contact-title"
           src="/assets/contact-title.svg"
           z-index="9"
-          alt=" "
+          alt="Section title"
         />
         {/* <ContactTitle /> */}
       </div>
@@ -42,7 +42,7 @@ function Contact(): React.ReactElement {
           <Form />
         </motion.span>
         <div className="contactSVG">
-          <img src="/assets/Group 7.svg" height={330} width={300} alt="" />
+          <img src="/assets/Group 7.svg" height={330} width={300} alt="flare" />
         </div>
       </div>
     </section>

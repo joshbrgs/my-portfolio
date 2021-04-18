@@ -37,7 +37,7 @@ const Cards: any = ({
       </div>
       <div className="image-container">
         <Tilt options={{ max: 25 }}>
-          <img src={imageUrl} className="card-image" alt="" />
+          <img src={imageUrl} className="card-image" alt="Mock-up" />
         </Tilt>
       </div>
     </div>
