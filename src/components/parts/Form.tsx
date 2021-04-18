@@ -25,7 +25,7 @@ export default function Form(): React.ReactElement {
       //config
       const response = await axios({
         method: 'post',
-        url: '/api/contact',
+        url: 'https://joshb.io/api/contact',
         headers: {
           Accept: 'application/json, text/plain, */*',
           'Content-Type': 'application/json'
