@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   return (
     <div className="footer">
       <p>
-        Checkout my{' '}
+        Check out my{' '}
         <Link href="https://joshb.io/404">
           <a>Blog</a>
         </Link>{' '}

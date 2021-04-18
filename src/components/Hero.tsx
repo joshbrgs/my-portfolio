@@ -156,12 +156,12 @@ const Hero: React.FC = () => {
                 .typeString('UI/UX Designer')
                 .pauseFor(2500)
                 .deleteAll()
-                // .typeString('Mobile Developer')
-                // .pauseFor(2500)
-                // .deleteAll()
-                // .typeString('Blockchain Developer')
-                // .pauseFor(2500)
-                // .deleteAll()
+                .typeString('Mobile Developer')
+                .pauseFor(2500)
+                .deleteAll()
+                .typeString('Blockchain Developer')
+                .pauseFor(2500)
+                .deleteAll()
                 .start();
             }}
           />

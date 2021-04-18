@@ -61,10 +61,10 @@ function About(): React.ReactElement {
         <h2 className="watermark_2">About</h2>
         <div className="underline" ref={ref}></div>
         <motion.p
-          animate={animation}
-          // initial={{ x: 50, opacity: 0 }}
-          // transition={{ duration: 1, delay: 15 }}
-          ref={ref}
+        // animate={animation}
+        // // initial={{ x: 50, opacity: 0 }}
+        // // transition={{ duration: 1, delay: 15 }}
+        // ref={ref}
         >
           Most of my experience is in Front End Developement, but I love the
           whole process of building apps, Back Ends, and programs. I graduated
@@ -74,10 +74,10 @@ function About(): React.ReactElement {
           I was down the rabbit hole of learning code.
         </motion.p>
         <motion.p
-          animate={anim}
-          // initial={{ x: -50, opacity: 0 }}
-          // transition={{ duration: 1, delay: 17 }}
-          ref={ref}
+        // animate={anim}
+        // // initial={{ x: -50, opacity: 0 }}
+        // // transition={{ duration: 1, delay: 17 }}
+        // ref={ref}
         >
           The libraries and frameworks I tend to use are <b>React</b> and{' '}
           <b>NextJS</b>, <b>Jest</b>, <b>Web3</b>, <b>Truffle</b>, and{' '}
@@ -89,10 +89,10 @@ function About(): React.ReactElement {
           <b>Golang</b>, <b>NodeJS</b>, and <b>Kotlin</b>.
         </motion.p>
         <motion.p
-          animate={animation}
-          // initial={{ x: 50, opacity: 0 }}
-          // transition={{ duration: 1, delay: 19 }}
-          ref={ref}
+        // animate={animation}
+        // // initial={{ x: 50, opacity: 0 }}
+        // // transition={{ duration: 1, delay: 19 }}
+        // ref={ref}
         >
           I love learning new tech, and trying new things. The reason I find
           this industry so interesting is because of the endless possibilities

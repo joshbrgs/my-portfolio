@@ -89,7 +89,7 @@ export default function Form(): React.ReactElement {
           }}
         />
         <label htmlFor="email" className="form-label">
-          Email
+          Your Email
         </label>
         <span className="error-form">{errors?.email?.message}</span>
       </div>

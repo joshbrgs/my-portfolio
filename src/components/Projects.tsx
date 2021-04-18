@@ -30,7 +30,7 @@ function Projects(): React.ReactElement {
           <Cards
             imageUrl="/assets/Logo blue.svg"
             title="Twitter Bot"
-            body="My twitter bot, on a time interval, made with Python, Tweepy, and the Twitter API, has a follow for a follow function, like and retweet keywords or a mention, and likes keywords like coffee and crypto!"
+            body="My twitter bot, on a time interval, made with Python, Tweepy, and the Twitter API, has a follow for a follow function, like and retweet mentions and keywords, like coffee and crypto!"
             button2="Tweet"
             git="https://github.com/jlifts/social-bots"
             site="https://twitter.com/intent/tweet?screen_name=bluejay_mr&ref_src=twsrc%5Etfw"
@@ -42,8 +42,8 @@ function Projects(): React.ReactElement {
         <span className="two">
           <Cards
             imageUrl="/assets/origin.png"
-            title="Eccomerce Site"
-            body="This is a build I made for a brand, Origin51, that is an eccomerce experience with Shopify SDK"
+            title="Ecommerce Site"
+            body="This is a build I made for a brand, Origin51, that is an ecommerce experience with Shopify SDK for the checkout, and Graphql to query the product data from their Shopify store, everything else is custom with React."
             button2="Live Site"
             git="https://github.com/jlifts/Origin51"
             site="https://www.origin51.com"
@@ -56,7 +56,7 @@ function Projects(): React.ReactElement {
           <Cards
             imageUrl="/assets/Icon.svg"
             title="My Portfolio Site"
-            body="This is the site you are currently on! You can also checkout my blog (coming soon) or type a wrong url to see the 404. Built with NextJS."
+            body="This is the site you are currently on! You can also check out my blog (coming soon) or type a wrong url to see the 404. Built with NextJS and NodeJS. "
             button2="Visit Blog"
             git="https://github.com/jlifts/my-portfolio"
             site="https://joshb.io/404"

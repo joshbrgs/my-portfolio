@@ -29,9 +29,8 @@ function Contact(): React.ReactElement {
     <section className="contact">
       <div className="contact-title">
         <img
+          className="contact-title"
           src="/assets/contact-title.svg"
-          height={370}
-          width={700}
           z-index="9"
           alt=" "
         />
