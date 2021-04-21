@@ -41,7 +41,7 @@ function Projects(): React.ReactElement {
         </span>
         <span className="two">
           <Cards
-            imageUrl="/assets/origin.png"
+            imageUrl="/assets/Origin_Mock.svg"
             title="Ecommerce Site"
             body="This is a build I made for a brand, Origin51, that is an ecommerce experience with Shopify SDK for the checkout, and Graphql to query the product data from their Shopify store, everything else is custom with React."
             button2="Live Site"
@@ -59,7 +59,7 @@ function Projects(): React.ReactElement {
             body="This is the site you are currently on! You can also check out my blog (coming soon) or type a wrong url to see the 404. Built with NextJS and NodeJS. "
             button2="Visit Blog"
             git="https://github.com/jlifts/my-portfolio"
-            site="https://joshb.io/404"
+            site="https://joshb.io/blog"
             lang="NextJS"
             lang2="TypeScript"
             lang3="NodeJS"

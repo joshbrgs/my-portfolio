@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
     <div className="footer">
       <p>
         Check out my{' '}
-        <Link href="https://joshb.io/404">
+        <Link href="/blog">
           <a>Blog</a>
         </Link>{' '}
         as well!

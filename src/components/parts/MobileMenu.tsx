@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link as LinkS } from 'react-scroll';
+import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faProjectDiagram,
   faEnvelope,
-  faUser
+  faUser,
+  faComment
 } from '@fortawesome/free-solid-svg-icons';
 
 const MobileMenu: React.FC = () => {
@@ -50,10 +52,12 @@ const MobileMenu: React.FC = () => {
           <a>About</a>
         </LinkS>
       </div>
-
-      {/* <Link to="/blog">
+      <div className="box">
+        <FontAwesomeIcon icon={faComment} size="1x" />
+        <Link href="/blog">
           <a>Blog</a>
-        </Link> */}
+        </Link>
+      </div>
     </div>
   );
 };

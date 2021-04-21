@@ -1,3 +1,4 @@
+//Refactor to Go
 import nodemailer from 'nodemailer';
 import { google } from 'googleapis';
 import { NextApiRequest, NextApiResponse } from 'next';

@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-scroll';
+import { Link as LinkS } from 'react-scroll';
+import Link from 'next/link';
 import { animateScroll as scroll } from 'react-scroll';
 import SocialIcons from '../components/parts/SocialIcons';
 import styles from '../styles/Hero.module.scss';
 import { motion } from 'framer-motion';
 import Typewriter from 'typewriter-effect';
 import Particles from 'react-particles-js';
+//Refactor Typewriter
 
 const Hero: React.FC = () => {
   const toggleHome = () => {
@@ -129,9 +131,9 @@ const Hero: React.FC = () => {
         />
       </div>
       <div className={styles.header}>
-        <Link to="/" onClick={toggleHome}>
+        <LinkS to="/" onClick={toggleHome}>
           <h1 className={styles.title}>Josh Burgess</h1>
-        </Link>
+        </LinkS>
         <span className={styles.socials}>
           <SocialIcons />
         </span>
@@ -156,18 +158,18 @@ const Hero: React.FC = () => {
                 .typeString('UI/UX Designer')
                 .pauseFor(2500)
                 .deleteAll()
-                .typeString('Mobile Developer')
-                .pauseFor(2500)
-                .deleteAll()
-                .typeString('Blockchain Developer')
-                .pauseFor(2500)
-                .deleteAll()
+                // .typeString('Mobile Developer')
+                // .pauseFor(2500)
+                // .deleteAll()
+                // .typeString('Blockchain Developer')
+                // .pauseFor(2500)
+                // .deleteAll()
                 .start();
             }}
           />
         </div>
         <div className={styles.nav}>
-          <Link
+          <LinkS
             to="projects"
             smooth={true}
             duration={500}
@@ -175,9 +177,9 @@ const Hero: React.FC = () => {
             exact="true"
           >
             <a className={styles.link}>Projects</a>
-          </Link>
+          </LinkS>
           <span className={styles.div}> - </span>
-          <Link
+          <LinkS
             to="contact"
             smooth={true}
             duration={500}
@@ -186,9 +188,9 @@ const Hero: React.FC = () => {
             offset={-70}
           >
             <a className={styles.link}>Contact Me</a>
-          </Link>
+          </LinkS>
           <span className={styles.div}> - </span>
-          <Link
+          <LinkS
             to="about"
             smooth={true}
             duration={500}
@@ -197,13 +199,14 @@ const Hero: React.FC = () => {
             offset={-70}
           >
             <a className={styles.link}>About</a>
+          </LinkS>
+          <span className={styles.div}> - </span>
+          <Link href="/blog">
+            <a className={styles.blog}>Blog</a>
           </Link>
         </div>
       </div>
-      {/* <div>
-          <aclassName='arrow blogme'>Look at My Blog!</a>
-          <a className='arrow'></a>
-        </div> */}
+
       <div className={styles.scrolldwn}>
         <div className={styles.bubble}>
           <span className={styles.circle}></span>

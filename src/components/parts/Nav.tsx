@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-scroll';
+import { Link as LinkS } from 'react-scroll';
+import Link from 'next/link';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -22,11 +23,11 @@ const Nav = (): React.ReactElement => {
 
   return (
     <motion.div className="nav" animate={animation} ref={ref}>
-      <Link to="hero" smooth={true} duration={500} spy={true} exact="true">
+      <LinkS to="hero" smooth={true} duration={500} spy={true} exact="true">
         <h1>Josh Burgess</h1>
-      </Link>
+      </LinkS>
       <div className="menu">
-        <Link
+        <LinkS
           to="projects"
           smooth={true}
           duration={500}
@@ -34,9 +35,9 @@ const Nav = (): React.ReactElement => {
           exact="true"
         >
           <a>Projects</a>
-        </Link>
+        </LinkS>
         <span> - </span>
-        <Link
+        <LinkS
           to="contact"
           smooth={true}
           duration={500}
@@ -45,9 +46,9 @@ const Nav = (): React.ReactElement => {
           offset={-70}
         >
           <a>Contact Me</a>
-        </Link>
+        </LinkS>
         <span> - </span>
-        <Link
+        <LinkS
           to="about"
           smooth={true}
           duration={500}
@@ -56,6 +57,10 @@ const Nav = (): React.ReactElement => {
           offset={-70}
         >
           <a>About</a>
+        </LinkS>
+        <span> - </span>
+        <Link href="/blog">
+          <a className="nav-blog">Blog</a>
         </Link>
       </div>
     </motion.div>

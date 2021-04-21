@@ -8,7 +8,6 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="icon" href="/favicon.ico" />
-          <title>Josh's Portfolio</title>
           <meta
             name="description"
             content="Josh Burgess's Web Portfolio. Experience something more than just another website, and if you like what you see, let's work together and make something creative for you!"
@@ -41,6 +40,7 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
+          <title>Josh's Portfolio</title>
           <Main />
           <NextScript />
         </body>

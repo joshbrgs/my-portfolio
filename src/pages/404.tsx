@@ -17,7 +17,7 @@ const PageNotFound: React.FC = () => {
     <div className="PageNotFound">
       <h1>404</h1>
       <img
-        src="/assets/ANH-Ben-identification.jpeg"
+        src="/assets/ANH-Ben-identification.jpg"
         height={350}
         width={490}
         alt=""
