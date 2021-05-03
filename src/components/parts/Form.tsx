@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
+// import axios from 'axios';
 
 type Inputs = {
   email: string;
@@ -13,33 +13,68 @@ export default function Form(): React.ReactElement {
   //Form Handler
   const {
     register,
-    handleSubmit,
+    // handleSubmit,
     formState: { errors },
     setValue,
     setError
   } = useForm<Inputs>();
 
-  async function onSubmitForm(value, e) {
-    e.target.reset();
-    try {
-      //config
-      const response = await axios({
-        method: 'post',
-        url: '/api/contact',
-        headers: {
-          Accept: 'application/json, text/plain, */*',
-          'Content-Type': 'application/json'
-        },
-        data: value
-      });
+  //Nodemailer
+  // async function onSubmitForm(value, e) {
+  //   e.target.reset();
+  //   try {
+  //     //config
+  //     const response = await axios({
+  //       method: 'post',
+  //       url: '/api/contact',
+  //       headers: {
+  //         Accept: 'application/json, text/plain, */*',
+  //         'Content-Type': 'application/json'
+  //       },
+  //       data: value
+  //     });
 
-      if (response.status == 200) {
-        console.log('Success');
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  }
+  //     if (response.status == 200) {
+  //       console.log('Success');
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // }
+
+  //Netlify Forms
+  const onSubmitForm = async (event, setSubmitText) => {
+    event.preventDefault();
+    setSubmitText('Submitting ...');
+    const formElements = [...event.currentTarget.elements];
+    const filledOutForm = formElements
+      .filter((elem) => !!elem.value)
+      .map(
+        (element) =>
+          encodeURIComponent(element.name) +
+          '=' +
+          encodeURIComponent(element.value)
+      )
+      .join('&');
+
+    await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: filledOutForm
+    })
+      .then(() => {
+        setSubmitText('Successfully submitted!');
+      })
+      .catch((_) => {
+        setSubmitText(
+          'There was an error with your submission, please email me using burgessj247@gmail.com.'
+        );
+      });
+  };
+
+  //Notify Status
+  const [submitText, setSubmitText] = useState(null);
+
   //use to be refs, event listeners
   useEffect(() => {
     register('email', {
@@ -72,7 +107,13 @@ export default function Form(): React.ReactElement {
 
   //Form
   return (
-    <form onSubmit={handleSubmit(onSubmitForm)}>
+    <form
+      // onSubmit={handleSubmit(onSubmitForm)} Nodemailer
+      // Netlify until OAuth Ironed out
+      onSubmit={(e) => onSubmitForm(e, setSubmitText)}
+      method="POST"
+      data-netlify="true"
+    >
       <div className="form-group">
         <input
           type="email"
@@ -136,7 +177,7 @@ export default function Form(): React.ReactElement {
       </div>
       <>
         <div className="form-btn">
-          <input type="submit" className="btnSubmit" value="Submit" />
+          <input type="submit" className="btnSubmit" value={submitText} />
         </div>
       </>
     </form>
