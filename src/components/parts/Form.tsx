@@ -113,6 +113,7 @@ export default function Form(): React.ReactElement {
       onSubmit={(e) => onSubmitForm(e, setSubmitText)}
       method="POST"
       data-netlify="true"
+      name="Contact-Me"
     >
       <div className="form-group">
         <input
