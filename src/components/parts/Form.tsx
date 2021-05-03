@@ -43,10 +43,10 @@ export default function Form(): React.ReactElement {
   // }
 
   //Netlify Forms
-  const onSubmitForm = async (event, setSubmitText) => {
-    event.preventDefault();
+  const onSubmitForm = async (e, setSubmitText) => {
+    e.preventDefault();
     setSubmitText('Submitting ...');
-    const formElements = [...event.currentTarget.elements];
+    const formElements = [...e.currentTarget.elements];
     const filledOutForm = formElements
       .filter((elem) => !!elem.value)
       .map(
@@ -64,6 +64,7 @@ export default function Form(): React.ReactElement {
     })
       .then(() => {
         setSubmitText('Successfully submitted!');
+        e.target.reset();
       })
       .catch((_) => {
         setSubmitText(
@@ -113,8 +114,9 @@ export default function Form(): React.ReactElement {
       onSubmit={(e) => onSubmitForm(e, setSubmitText)}
       method="POST"
       data-netlify="true"
-      name="Contact-Me"
+      name="contact-form"
     >
+      <input type="hidden" name="form-name" value="contact-form" />
       <div className="form-group">
         <input
           type="email"
