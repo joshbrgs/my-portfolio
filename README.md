@@ -1,8 +1,16 @@
 # My Portfolio
 
-[Live Site](https://www.joshb.io)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/jlifts/my-portfolio?include_prereleases)
+![GitHub](https://img.shields.io/github/license/jlifts/my-portfolio)
+![GitHub issues](https://img.shields.io/github/issues-raw/jlifts/my-portfolio)
+![GitHub last commit](https://img.shields.io/github/last-commit/jlifts/my-portfolio)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/jlifts/my-portfolio)
+
+
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/754dd9ed-87a1-4a87-8250-f53cf1fdaebe/deploy-status)](https://app.netlify.com/sites/portfoliojb/deploys)
+
+[Live Site](https://www.joshb.io)
 
 ## Description
 
