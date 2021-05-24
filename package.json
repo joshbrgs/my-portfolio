@@ -2,6 +2,8 @@
   "name": "webfolio",
   "version": "0.1.0",
   "private": true,
+  "liscence": "MIT",
+  "author": "Josh Burgess <burgessj247@gmail.com> (https://joshb.io)"
   "scripts": {
     "dev": "next dev",
     "build": "next build",
