@@ -66,6 +66,7 @@ export default function Form(): React.ReactElement {
         setSubmitText('Successfully submitted!');
         e.target.reset();
       })
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .catch((_) => {
         setSubmitText(
           'There was an error with your submission, please email me using burgessj247@gmail.com.'

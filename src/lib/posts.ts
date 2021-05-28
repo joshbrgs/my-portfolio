@@ -28,3 +28,19 @@ export async function getSinglePost(postSlug) {
       console.error(err);
     });
 }
+// export async function getAllPostSlugs(postSlug) {
+//   return await api.posts
+//     .read({
+//       slug: postSlug
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//     });
+//   return postSlug.map((slug) => {
+//     return {
+//       params: {
+//         slug
+//       }
+//     };
+//   });
+// }

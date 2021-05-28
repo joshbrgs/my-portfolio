@@ -1,6 +1,7 @@
 import React from 'react';
 import Tilt from 'react-tilt';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Cards: any = ({
   imageUrl,
   title,

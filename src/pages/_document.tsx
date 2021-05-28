@@ -7,20 +7,6 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="icon" href="/favicon.ico" />
-          <meta
-            name="description"
-            content="Josh Burgess's Web Portfolio. Experience something more than just another website, and if you like what you see, let's work together and make something creative for you!"
-          />
-          <meta name="author" content="Josh Burgess" />
-          <meta property="og:title" content="Josh's Portfolio" />
-          <meta property="og:image" content="https://www.joshb.io" />
-          <link rel="apple-touch-icon" href="/favicon.ico" />
-
-          {/* Twitter Card */}
-          <meta name="twitter:card" content="summary" />
-          <meta name="twitter:site" content="@bluejay_mr" />
-
           {/* Google Analytics */}
           <script
             async
@@ -40,7 +26,6 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
-          <title>Josh's Portfolio</title>
           <Main />
           <NextScript />
         </body>

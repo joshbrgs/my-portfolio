@@ -8,21 +8,24 @@ type Post = {
   slug: string;
   reading_time: Float32Array;
   custom_excerpt: string;
-  tags: any;
-  authors: any;
+  tags;
+  authors;
   created_at: Float32Array;
   id: string;
-  dateFormatted: any;
-  feature_image: any;
+  dateFormatted;
+  feature_image;
 };
 
 import { getPosts } from '../../lib/posts';
 
-export async function getStaticProps(context) {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export async function getStaticProps() {
+  //context was param
   const posts = await getPosts();
 
   //Format the Date
   posts.map((post) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const options: any = {
       year: 'numeric',
       month: 'short',

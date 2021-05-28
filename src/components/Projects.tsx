@@ -46,7 +46,7 @@ function Projects(): React.ReactElement {
             body="This is a build I made for a brand, Origin51, that is an ecommerce experience with Shopify SDK for the checkout, and Graphql to query the product data from their Shopify store, everything else is custom with React."
             button2="Live Site"
             git="https://github.com/jlifts/Origin51"
-            site="https://www.origin51.com"
+            site="https://jlifts.github.io/Origin51"
             lang="React"
             lang2="Graphql"
             lang3="Shopify-Buy-SDK"

@@ -3,6 +3,7 @@ import nodemailer from 'nodemailer';
 import { google } from 'googleapis';
 import { NextApiRequest, NextApiResponse } from 'next';
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   // const { email, subject, message } = req.body;
   try {
@@ -42,9 +43,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       subject: req.body.subject,
       html: `<h1>Response from Portfolio!</h1><br><p>Email:${req.body.email}</p><br><p>${req.body.message}</p>`
     });
+    // eslint-disable-next-line no-console
     console.log('Message Sent', emailRes.messageId);
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
   res.status(200).json(req.body);
 };

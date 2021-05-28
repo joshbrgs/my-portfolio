@@ -1,8 +1,19 @@
 import '../styles/globals.scss';
 import '../styles/theme.scss';
 import { motion } from 'framer-motion';
+import Meta from '../lib/meta';
 
-function MyApp({ Component, pageProps, router }): any {
+type App = {
+  Component;
+  pageProps;
+  router;
+};
+
+const MyApp: React.FunctionComponent<App> = ({
+  Component,
+  pageProps,
+  router
+}) => {
   return (
     <motion.div
       key={router.route}
@@ -10,9 +21,10 @@ function MyApp({ Component, pageProps, router }): any {
       animate={{ opacity: 1, y: 20 }}
       transition={{ transition: 'ease-in-out' }}
     >
+      <Meta />
       <Component {...pageProps} />
     </motion.div>
   );
-}
+};
 
 export default MyApp;
