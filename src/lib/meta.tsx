@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import Head from 'next/Head';
+import Head from 'next/head';
 
 type MetaProps = {
   canonicalUrl?: string;
