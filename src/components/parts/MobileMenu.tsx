@@ -2,6 +2,7 @@ import React from 'react';
 import { Link as LinkS } from 'react-scroll';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { motion } from 'framer-motion';
 import {
   faProjectDiagram,
   faEnvelope,
@@ -11,7 +12,12 @@ import {
 
 const MobileMenu: React.FC = () => {
   return (
-    <div className="mobile-container">
+    <motion.div
+      className="mobile-container"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.5, duration: 1 }}
+    >
       <div className="box proj">
         <FontAwesomeIcon icon={faProjectDiagram} size="1x" />
         <LinkS
@@ -58,7 +64,7 @@ const MobileMenu: React.FC = () => {
           <a>Blog</a>
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

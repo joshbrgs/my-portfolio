@@ -55,7 +55,12 @@ const Blog: React.FC<{ posts: Post[] }> = (props) => {
     <div>
       <Link href="/">
         <div className="back">
-          <FontAwesomeIcon icon={faArrowLeft} size="1x" color="#e6e6e6" />{' '}
+          <FontAwesomeIcon
+            className="back-arrow"
+            icon={faArrowLeft}
+            size="1x"
+            color="#e6e6e6"
+          />{' '}
           <a>Go back</a>
         </div>
       </Link>

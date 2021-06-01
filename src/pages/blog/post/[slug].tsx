@@ -76,7 +76,12 @@ const Post: React.FC<{ post: Post }> = (props) => {
       <div className="single-post">
         <Link href="/blog">
           <div className="back">
-            <FontAwesomeIcon icon={faArrowLeft} size="1x" color="#e6e6e6" />{' '}
+            <FontAwesomeIcon
+              className="back-arrow"
+              icon={faArrowLeft}
+              size="1x"
+              color="#e6e6e6"
+            />{' '}
             <a>Go back</a>
           </div>
         </Link>

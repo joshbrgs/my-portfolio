@@ -5,6 +5,13 @@ body {
   margin: 0;
   font-family: -apple-system, Ubuntu, Poppins;
   background-color: var(--color-dark);
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  //hide scroll bars?
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 a {
   color: var(--font-color);
@@ -32,6 +39,48 @@ p {
   color: var(--font-color);
   cursor: default;
 }
+//Loading Screens
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: 450px) {
+    margin: 4.75em auto;
+  }
+
+  @media (min-width: 768px) {
+    margin: 11.75em auto;
+  }
+  @media (min-width: 1024px) {
+    margin: 2.75em auto;
+  }
+  @media (min-width: 1450px) {
+    margin: 8.75em auto;
+  }
+
+  .box {
+    background-color: var(--color-dark);
+
+    height: 100vh;
+    overflow: hidden;
+
+    @media (min-width: 768px) {
+      margin: 8em auto;
+    }
+    @media (min-width: 1024px) {
+      margin: -1em auto 4em;
+    }
+    @media (min-width: 1450px) {
+      margin: 5em auto 4em;
+    }
+    .image {
+      font-size: 3em;
+      z-index: 99;
+    }
+  }
+}
 //Landing Page
 .hero {
   background-color: var(--color-dark);
@@ -41,11 +90,17 @@ p {
 }
 .social {
   margin: 0em 0.4em;
-  font-size: 0.75em;
+  width: 10em;
+  font-size: 0.6em;
 
   @media (min-width: 768px) {
     font-size: 1em;
   }
+}
+.socialIcons {
+  display: flex;
+  width: 8em;
+  flex-direction: row;
 }
 .twitter:hover {
   color: var(--twitter);
@@ -768,11 +823,17 @@ p {
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    display: flex;
 
     &:hover {
       transition: 0.2s ease-in-out;
       transform: scale(1.2);
     }
+  }
+  .dwn {
+    width: 1em;
+    margin-right: 0.3em;
+    transform: translateY(15%);
   }
 }
 //Blog page
@@ -783,6 +844,12 @@ p {
   font-size: 1em;
   cursor: pointer;
   z-index: 9;
+  width: fit-content;
+  display: inline-block;
+
+  a {
+    margin: 0em 0em 1em;
+  }
 
   @media (min-width: 768px) {
     margin: 0em 3rem;
@@ -792,6 +859,11 @@ p {
     transform: scale(1.05);
     transition: 0.4s ease;
   }
+}
+.back-arrow {
+  width: 1em;
+  margin: 0.6em 0.2em 0em;
+  transform: translateY(15%);
 }
 //CSS Masonry Grid?
 .posts {
@@ -966,6 +1038,8 @@ p {
 
     .blog-image {
       border-radius: 4px;
+    }
+    figure.kg-card.kg-code-card {
     }
     .post-body {
       padding: 1em 0.5em;

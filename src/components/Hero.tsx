@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Link as LinkS } from 'react-scroll';
 import Link from 'next/link';
 import { animateScroll as scroll } from 'react-scroll';
@@ -13,9 +14,15 @@ const Hero: React.FC = () => {
   const toggleHome = () => {
     scroll.scrollToTop();
   };
+
   return (
     <section className="hero">
-      <div className={styles.background}>
+      <motion.div
+        className={styles.background}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 1 }}
+      >
         <Particles
           height="90vh"
           width="90vw"
@@ -129,25 +136,30 @@ const Hero: React.FC = () => {
             retina_detect: true
           }}
         />
-      </div>
-      <div className={styles.header}>
+      </motion.div>
+      <motion.div
+        className={styles.header}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 1 }}
+      >
         <LinkS to="/" onClick={toggleHome}>
           <h1 className={styles.title}>Josh Burgess</h1>
         </LinkS>
         <span className={styles.socials}>
           <SocialIcons />
         </span>
-      </div>
+      </motion.div>
       <div className={styles.container}>
+        <div className={styles.image}>
+          <img src="/assets/Icon.svg" height={330} width={300} alt="Icon" />
+        </div>
         <motion.div
-          className={styles.image}
+          className={styles.type}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
         >
-          <img src="/assets/Icon.svg" height={330} width={300} alt="Icon" />
-        </motion.div>
-        <div className={styles.type}>
           <Typewriter
             options={{ loop: true }}
             onInit={(typewriter) => {
@@ -167,8 +179,13 @@ const Hero: React.FC = () => {
                 .start();
             }}
           />
-        </div>
-        <div className={styles.nav}>
+        </motion.div>
+        <motion.div
+          className={styles.nav}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+        >
           <LinkS
             to="projects"
             smooth={true}
@@ -204,14 +221,18 @@ const Hero: React.FC = () => {
           <Link href="/blog">
             <a className={styles.blog}>Blog</a>
           </Link>
-        </div>
+        </motion.div>
       </div>
-
-      <div className={styles.scrolldwn}>
+      <motion.div
+        className={styles.scrolldwn}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.8 }}
+      >
         <div className={styles.bubble}>
           <span className={styles.circle}></span>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
