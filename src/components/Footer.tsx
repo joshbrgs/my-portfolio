@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
       </p>
       {/* Tip with Bat? */}
       <a className="btn" href="/assets/Burgess Resume.pdf" download>
-        <FontAwesomeIcon className="dwn" icon={faDownload} size="1x" /> Resume
+        <img src="/assets/download.svg" alt="download" className="dwn" /> Resume
       </a>
       <a href="mailto:burgessj247@gmail.com">burgessj247@gmail.com</a>
     </div>

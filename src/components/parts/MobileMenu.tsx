@@ -19,7 +19,7 @@ const MobileMenu: React.FC = () => {
       transition={{ delay: 0.5, duration: 1 }}
     >
       <div className="box proj">
-        <FontAwesomeIcon icon={faProjectDiagram} size="1x" />
+        <img src="/assets/project.svg" alt="project" className="mnav" />
         <LinkS
           to="projects"
           smooth={true}
@@ -32,7 +32,7 @@ const MobileMenu: React.FC = () => {
       </div>
 
       <div className="box">
-        <FontAwesomeIcon icon={faEnvelope} size="1x" />
+        <img src="/assets/envelope.svg" alt="contact" className="mnav" />
         <LinkS
           to="contact"
           smooth={true}
@@ -46,7 +46,7 @@ const MobileMenu: React.FC = () => {
       </div>
 
       <div className="box">
-        <FontAwesomeIcon icon={faUser} size="1x" />
+        <img src="/assets/user.svg" alt="about" className="mnav" />
         <LinkS
           to="about"
           smooth={true}
@@ -59,7 +59,7 @@ const MobileMenu: React.FC = () => {
         </LinkS>
       </div>
       <div className="box">
-        <FontAwesomeIcon icon={faComment} size="1x" />
+        <img src="/assets/comment.svg" alt="blog" className="mnav" />
         <Link href="/blog">
           <a>Blog</a>
         </Link>
