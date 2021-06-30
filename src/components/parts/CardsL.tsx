@@ -1,6 +1,5 @@
 import React from 'react';
 import Tilt from 'react-tilt';
-import Image from 'next/image';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Cards: any = ({
@@ -18,7 +17,7 @@ const Cards: any = ({
     <div className="card">
       <div className="side-section L">
         <Tilt options={{ max: 25 }}>
-          <Image
+          <img
             src={imageUrl}
             className="card-image"
             alt="Mock-up"

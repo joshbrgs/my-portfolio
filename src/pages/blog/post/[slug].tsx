@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import Footer from '../../../components/parts/BlogFooter';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -75,7 +74,7 @@ const Post: React.FC<{ post: Post }> = (props) => {
       <div className="single-post">
         <Link href="/blog">
           <div className="back">
-            <Image
+            <img
               src="/assets/back.svg"
               alt="back"
               className="back-arrow"

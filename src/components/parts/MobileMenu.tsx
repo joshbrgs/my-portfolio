@@ -1,14 +1,7 @@
 import React from 'react';
 import { Link as LinkS } from 'react-scroll';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion';
-import {
-  faProjectDiagram,
-  faEnvelope,
-  faUser,
-  faComment
-} from '@fortawesome/free-solid-svg-icons';
 
 const MobileMenu: React.FC = () => {
   return (

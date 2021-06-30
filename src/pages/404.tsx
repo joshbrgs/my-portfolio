@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
@@ -17,7 +16,7 @@ const PageNotFound: React.FC = () => {
   return (
     <div className="PageNotFound">
       <h1>404</h1>
-      <Image
+      <img
         src="/assets/ANH-Ben-identification.webp"
         height={350}
         width={490}

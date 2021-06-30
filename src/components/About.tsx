@@ -1,5 +1,4 @@
 import SocialIcons from './parts/SocialIcons';
-import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -45,7 +44,7 @@ function About(): React.ReactElement {
     <section className="about">
       <div className="bio-container">
         <motion.span className="bubbles" animate={animation} ref={ref}>
-          <Image src="/assets/Grid.svg" height={270} width={250} alt="flare" />
+          <img src="/assets/Grid.svg" height={270} width={250} alt="flare" />
         </motion.span>
         <h2 className="about-title">About</h2>
         <h2 className="watermark_2">About</h2>
@@ -112,7 +111,7 @@ function About(): React.ReactElement {
         </span>
       </div>
       <div className="skill">
-        <Image
+        <img
           src="/assets/Josh Burgess Logo.svg"
           height={400}
           width={400}

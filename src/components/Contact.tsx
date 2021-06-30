@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-namespace */
 import React, { useEffect } from 'react';
 import Form from './parts/Form';
-import Image from 'next/image';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 // import ContactTitle from './parts/ContactTitle';
@@ -29,7 +28,7 @@ function Contact(): React.ReactElement {
   return (
     <section className="contact">
       <div className="contact-title">
-        <Image
+        <img
           className="contact-title"
           src="/assets/contact-title.svg"
           z-index="9"
@@ -45,7 +44,7 @@ function Contact(): React.ReactElement {
           <Form />
         </motion.span>
         <div className="contactSVG">
-          <Image
+          <img
             src="/assets/Modern Technology. Isometric People. Man with Laptop..png"
             height={450}
             width={350}

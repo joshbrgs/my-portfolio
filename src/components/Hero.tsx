@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link as LinkS } from 'react-scroll';
 import Link from 'next/link';
-import Image from 'next/image';
 import styles from '../styles/Hero.module.scss';
 import { motion } from 'framer-motion';
 import Typewriter from 'typewriter-effect';
@@ -23,12 +22,12 @@ const Hero: React.FC = () => {
     >
       <div className={styles.background} />
       <div className={styles.imageM}>
-        <Image src="/assets/Icon.svg" height={50} width={70} alt="Icon" />
+        <img src="/assets/Icon.svg" height={50} width={70} alt="Icon" />
       </div>
       <div className={styles.container}>
         <div className={styles.innerContainer}>
           <div className={styles.image}>
-            <Image src="/assets/Icon.svg" height={450} width={400} alt="Icon" />
+            <img src="/assets/Icon.svg" height={450} width={400} alt="Icon" />
           </div>
           <div className={styles.col}>
             <div className={styles.cta}>

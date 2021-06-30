@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
@@ -21,7 +20,7 @@ const Footer: React.FC = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-        <Image
+        <img
           src="/assets/download.svg"
           alt="download"
           className="dwn"
