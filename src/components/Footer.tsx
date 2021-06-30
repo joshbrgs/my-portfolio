@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
   return (
@@ -14,9 +14,22 @@ const Footer: React.FC = () => {
         as well!
       </p>
       {/* Tip with Bat? */}
-      <a className="btn" href="/assets/Burgess Resume.pdf" download>
-        <img src="/assets/download.svg" alt="download" className="dwn" /> Resume
-      </a>
+      <motion.a
+        className="btn"
+        href="/assets/Burgess Resume.pdf"
+        download
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <Image
+          src="/assets/download.svg"
+          alt="download"
+          className="dwn"
+          height={10}
+          width={35}
+        />{' '}
+        Resume
+      </motion.a>
       <a href="mailto:burgessj247@gmail.com">burgessj247@gmail.com</a>
     </div>
   );

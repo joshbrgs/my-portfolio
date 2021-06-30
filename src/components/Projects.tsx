@@ -1,5 +1,6 @@
 import Cards from '../components/parts/Cards';
 import React, { useState, useEffect } from 'react';
+import CardsL from './parts/CardsL';
 
 function Projects(): React.ReactElement {
   const [offsetY, setOffsetY] = useState(0);
@@ -40,8 +41,8 @@ function Projects(): React.ReactElement {
           />
         </span>
         <span className="two">
-          <Cards
-            imageUrl="/assets/Origin_Mock.svg"
+          <CardsL
+            imageUrl="/assets/Origin_Mock.webp"
             title="Ecommerce Site"
             body="This is a build I made for a brand, Origin51, that is an ecommerce experience with Shopify SDK for the checkout, and Graphql to query the product data from their Shopify store, everything else is custom with React."
             button2="Live Site"
@@ -52,6 +53,19 @@ function Projects(): React.ReactElement {
             lang3="Shopify-Buy-SDK"
           />
         </span>
+        {/* <span className="three">
+          <Cards
+            imageUrl="/assets/Discord.svg"
+            title="Discord Jack-of-All-Trades Bot"
+            body="#"
+            button2="Add the Bot!"
+            git="https://github.com/jlifts/bot-over-other-bots"
+            site="#"
+            lang="Discord Developer Portal"
+            lang2="TypeScript"
+            lang3="MongoDB"
+          />
+        </span> */}
         <span className="three">
           <Cards
             imageUrl="/assets/Icon.svg"

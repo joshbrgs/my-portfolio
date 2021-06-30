@@ -1,10 +1,9 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Footer from '../../../components/parts/BlogFooter';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { getSinglePost, getPosts } from '../../../lib/posts';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 type Post = {
   title: string;
@@ -55,28 +54,34 @@ const Post: React.FC<{ post: Post }> = (props) => {
   if (router.isFallback) {
     return <h1>Loading...</h1>;
   }
-  //Disqus Comments
-  function loadComments() {
-    setLoadComments(false);
+  // //Disqus Comments
+  // function loadComments() {
+  //   setLoadComments(false);
 
-    (window as any).disqus_config = function () {
-      this.page.url = window.location.href;
-      this.page.identifier = post.slug;
-    };
+  //   (window as any).disqus_config = function () {
+  //     this.page.url = window.location.href;
+  //     this.page.identifier = post.slug;
+  //   };
 
-    const script = document.createElement('script');
-    script.src = 'https://ghostcms-nextjs-11.disqus.com/embed.js';
-    script.setAttribute('data-timestamp', Date.now().toString());
+  //   const script = document.createElement('script');
+  //   script.src = 'https://ghostcms-nextjs-11.disqus.com/embed.js';
+  //   script.setAttribute('data-timestamp', Date.now().toString());
 
-    document.body.appendChild(script);
-  }
+  //   document.body.appendChild(script);
+  // }
 
   return (
     <div>
       <div className="single-post">
         <Link href="/blog">
           <div className="back">
-            <img src="/assets/back.svg" alt="back" className="back-arrow" />{' '}
+            <Image
+              src="/assets/back.svg"
+              alt="back"
+              className="back-arrow"
+              height={20}
+              width={30}
+            />{' '}
             <a>Go back</a>
           </div>
         </Link>

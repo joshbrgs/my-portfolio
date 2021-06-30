@@ -1,6 +1,4 @@
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Footer from '../../components/parts/BlogFooter';
 
 type Post = {
@@ -60,6 +58,12 @@ const Blog: React.FC<{ posts: Post[] }> = (props) => {
         </div>
       </Link>
       <ul className="posts">
+        <img
+          src="/assets/Repeat-Grid5.svg"
+          height={500}
+          width={500}
+          className="blog-grid"
+        />
         {posts.map((post) => {
           return (
             <li key={post.id} className="indiv">
@@ -91,6 +95,7 @@ const Blog: React.FC<{ posts: Post[] }> = (props) => {
           );
         })}
       </ul>
+
       <Footer />
     </div>
   );

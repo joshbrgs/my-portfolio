@@ -1,6 +1,6 @@
 {
   "name": "webfolio",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "private": true,
   "liscence": "MIT",
   "author": "Josh Burgess <burgessj247@gmail.com> (https://joshb.io)",
@@ -24,7 +24,6 @@
     "react-dom": "17.0.2",
     "react-hook-form": "^7.1.1",
     "react-intersection-observer": "^8.31.0",
-    "react-particles-js": "^3.4.1",
     "react-scroll": "^1.8.2",
     "react-tilt": "^0.1.4",
     "sitemap": "^7.0.0",

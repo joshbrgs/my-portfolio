@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 //Components
 import Nav from '../components/parts/Nav';
@@ -13,26 +13,24 @@ import MainLoading from '../components/Animations/MainLoading';
 
 //Landing Page
 const Home: React.FC = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false); //Set to true for loading animation
 
   return (
-    <AnimateSharedLayout type="crossfade">
-      <AnimatePresence>
-        {loading ? (
-          <MainLoading setLoading={setLoading} />
-        ) : (
-          <>
-            <Hero />
-            <Nav />
-            <Projects />
-            <Contact />
-            <About />
-            <Footer />
-            <MobileMenu />
-          </>
-        )}
-      </AnimatePresence>
-    </AnimateSharedLayout>
+    <AnimatePresence>
+      {loading ? (
+        <MainLoading setLoading={setLoading} />
+      ) : (
+        <>
+          <Hero />
+          <Nav />
+          <Projects />
+          <Contact />
+          <About />
+          <Footer />
+          <MobileMenu />
+        </>
+      )}
+    </AnimatePresence>
   );
 };
 

@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="459" height="119" viewBox="0 0 459 119">
-  <text id="export_const_trackPageView_url:_string_:_void_window.gtag_config_GA_TRACKING_ID_page_path:_url_" data-name="export const trackPageView = (url: string): void =&gt; {
-  window.gtag(‘config’, GA_TRACKING_ID, {
-    page_path: url
-  });
-};" transform="translate(0 19)" fill="#fff" font-size="20" font-family="HelveticaNeue, Helvetica Neue"><tspan x="0" y="0">export const trackPageView = (url: string): void =&gt; {</tspan><tspan x="0" y="24" xml:space="preserve">  window.gtag(‘config’, GA_TRACKING_ID, {</tspan><tspan x="0" y="48" xml:space="preserve">    page_path: url</tspan><tspan x="0" y="72" xml:space="preserve">  });</tspan><tspan x="0" y="96">};</tspan></text>
-</svg>

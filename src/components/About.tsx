@@ -1,20 +1,15 @@
 import SocialIcons from './parts/SocialIcons';
-import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 function About(): React.ReactElement {
-  const [offsetY, setOffsetY] = useState(0);
-  const handleScroll = () => setOffsetY(window.pageYOffset);
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
   const { ref, inView } = useInView();
   const animation = useAnimation();
   const anim = useAnimation();
+  const [hovered, setHovered] = useState(false);
+  const toggleHover = () => setHovered(!hovered);
 
   useEffect(() => {
     if (inView) {
@@ -50,14 +45,9 @@ function About(): React.ReactElement {
     <section className="about">
       <div className="bio-container">
         <motion.span className="bubbles" animate={animation} ref={ref}>
-          <img src="/assets/Grid.svg" height={270} width={250} alt="flare" />
+          <Image src="/assets/Grid.svg" height={270} width={250} alt="flare" />
         </motion.span>
-        <h2
-          className="about-title"
-          style={{ transform: `translateY(${offsetY * 0.1}px)` }}
-        >
-          About
-        </h2>
+        <h2 className="about-title">About</h2>
         <h2 className="watermark_2">About</h2>
         <div className="underline" ref={ref}></div>
         <motion.p
@@ -71,7 +61,22 @@ function About(): React.ReactElement {
           from <b>Pittsburgh University</b>, in Pittsburgh Pennsylvania, with a
           BS in Digital Marketing. It was during my undergraduate where I was
           introduced to the basics of scripting languages, and once I graduated
-          I was down the rabbit hole of learning code.
+          I was down the rabbit hole of learning{' '}
+          <span
+            className="hover-reveal"
+            onMouseEnter={toggleHover}
+            onMouseLeave={toggleHover}
+          >
+            code
+            <img
+              className={hovered ? 'hover reveal' : 'hover'}
+              role="presentation"
+              height={100}
+              width={100}
+              src="/assets/shaqshake.gif"
+            />
+          </span>
+          .
         </motion.p>
         <motion.p
         // animate={anim}
@@ -80,13 +85,15 @@ function About(): React.ReactElement {
         // ref={ref}
         >
           The libraries and frameworks I tend to use are <b>React</b> and{' '}
-          <b>NextJS</b>, <b>Jest</b>, <b>Web3</b>, <b>Truffle</b>, and{' '}
-          <b>Flutter</b>. I have used <b>GraphQL</b> and <b>SQL</b>. I use
-          Shopify as an Eccomerce CMS, and their SDK for personalized
-          experiences. The languages I work with are <b>Typescript</b>,{' '}
-          <b>JavaScript</b>, <b>Python</b>, <b>Sass</b>, <b>CSS</b>, and{' '}
-          <b>HTML</b>. I am currently learing <b>Solidity</b>, <b>Dart</b>,{' '}
-          <b>Golang</b>, <b>NodeJS</b>, and <b>Kotlin</b>.
+          <b>NextJS</b>, <b>Jest</b>, <b>NodeJS</b>, <b>NestJS</b>, and{' '}
+          <b>React Native</b>. I have used <b>GraphQL</b> and <b>SQL</b> with{' '}
+          <b>MongoDB</b> and <b>FireBase</b>. I use WordPress and Shopify as an
+          Eccomerce CMS, and their SDK for personalized experiences. I also
+          wireframe and design with <b>AdobeXD</b> and <b>Illustrator</b>. The
+          languages I work with are <b>Typescript</b>, <b>JavaScript</b>,{' '}
+          <b>Python</b>, <b>Sass</b>, <b>CSS</b>, and <b>HTML</b>. I am
+          currently learing <b>Solidity</b>, <b>Golang</b>, <b>FaunaDB</b>, and{' '}
+          <b>Kotlin</b>.
         </motion.p>
         <motion.p
         // animate={animation}
@@ -100,12 +107,12 @@ function About(): React.ReactElement {
           <b>Cryptocurrency</b> space and <b>Blockchain</b> Tech. I am a
           proponent of <b>DeFi</b>.
         </motion.p>
-        <span>
+        <span className="social-container">
           <SocialIcons />
         </span>
       </div>
       <div className="skill">
-        <img
+        <Image
           src="/assets/Josh Burgess Logo.svg"
           height={400}
           width={400}
