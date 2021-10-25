@@ -91,7 +91,7 @@ function About(): React.ReactElement {
           wireframe and design with <b>AdobeXD</b> and <b>Illustrator</b>. The
           languages I work with are <b>Typescript</b>, <b>JavaScript</b>,{' '}
           <b>Python</b>, <b>Sass</b>, <b>CSS</b>, and <b>HTML</b>. I am
-          currently learing <b>Solidity</b>, <b>Golang</b>, <b>FaunaDB</b>, and{' '}
+          currently learning <b>Solidity</b>, <b>Golang</b>, <b>FaunaDB</b>, and{' '}
           <b>Kotlin</b>.
         </motion.p>
         <motion.p
