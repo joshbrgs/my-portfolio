@@ -20,7 +20,7 @@ const Meta: FunctionComponent<MetaProps> = ({
 }) => {
 	ogImage = ogImage != null ? ogImage : '/assets/Icon.svg';
 	return (
-		<Head>
+		<>
 			<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			<title>{title}</title>
 			<meta name="keywords" content={keywords} key="metakeywords" />
@@ -47,7 +47,7 @@ const Meta: FunctionComponent<MetaProps> = ({
 			<meta name="twitter:creator" content="@tumee" key="twittercreator" />
 
 			{children}
-		</Head>
+		</>
 	);
 };
 

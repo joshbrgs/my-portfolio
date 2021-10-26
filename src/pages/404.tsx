@@ -9,7 +9,6 @@ const PageNotFound: React.FC = () => {
 
 	useEffect(() => {
 		setTimeout(() => {
-			// router.go;
 			router.push('/');
 		}, 3500);
 	}, []);

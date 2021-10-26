@@ -1,6 +1,6 @@
 import React from 'react';
-import Social from './parts/SocialIcons';
 import Link from 'next/link';
+import SocialIcons from '../UI/SocialIcons';
 
 const Footer: React.FC = () => {
 	return (
@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
 			{/* Tip with Bat? */}
 			{/* Socials */}
 			<div className="social-div">
-				<Social />
+				<SocialIcons />
 			</div>
 			<a className="email" href="mailto:burgessj247@gmail.com">
 				burgessj247@gmail.com
