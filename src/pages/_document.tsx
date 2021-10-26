@@ -1,37 +1,18 @@
-import Document, { Head, Html, Main, NextScript } from 'next/document';
-
-import { GA_TRACKING_ID } from '../lib/ga';
+import Document, { Html, Main, NextScript } from 'next/document';
+import DocHead from '../lib/Head';
 
 class MyDocument extends Document {
-  render(): JSX.Element {
-    return (
-      <Html lang="en">
-        <Head>
-          {/* Google Analytics */}
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GA_TRACKING_ID}', {
-                  page_path: window.location.pathname,
-                });
-              `
-            }}
-          />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    );
-  }
+	render(): JSX.Element {
+		return (
+			<Html lang="en">
+				<DocHead />
+				<body>
+					<Main />
+					<NextScript />
+				</body>
+			</Html>
+		);
+	}
 }
 
 export default MyDocument;

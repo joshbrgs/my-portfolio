@@ -1,28 +1,15 @@
 import Link from 'next/link';
-import Footer from '../../../components/parts/BlogFooter';
+import Footer from '../../../components/Navigation/BlogFooter';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { getSinglePost, getPosts } from '../../../util/posts';
-
-type Post = {
-	title: string;
-	html: string;
-	slug: string;
-	tags: any;
-	reading_time: Float32Array;
-	custom_excerpt: string;
-	authors: any;
-	created_at: Float32Array;
-	id: string;
-	dateFormatted: any;
-	feature_image: any;
-};
+import { GetStaticPropsContext } from 'next';
 
 // Static Filesystem Cache
 export async function getStaticPaths() {
 	const posts = await getPosts();
 
-	const paths = posts.map(post => ({
+	const paths = posts.map((post: { slug: any }) => ({
 		params: { slug: post.slug },
 	}));
 
@@ -30,8 +17,8 @@ export async function getStaticPaths() {
 	return { paths, fallback: false };
 }
 
-export async function getStaticProps(context) {
-	const post = await getSinglePost(context.params.slug);
+export async function getStaticProps(context: GetStaticPropsContext) {
+	const post = await getSinglePost(context?.params?.slug);
 
 	if (!post) {
 		return {

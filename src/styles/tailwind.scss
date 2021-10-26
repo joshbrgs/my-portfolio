@@ -1,0 +1,26 @@
+@import '~tailwindcss/base';
+@import '~tailwindcss/components';
+@import '~tailwindcss/utilities';
+
+:root {
+	--color-primary: #117dac;
+	--color-secondary: #ed1c24;
+	--color-third: #ea8522;
+	--color-four: #20c20e;
+	--color-five: #ffd400;
+	--color-six: #5c2d91;
+
+	--color-dark: #161616;
+	--color-dark-alt: #2a2a36;
+	--color-dark-shade: #222222;
+
+	--font-color: #e6e6e6;
+	--blog-font: #c4c6c6;
+	--blog-secondary: #6c787f;
+	--blog-font-secondary: #c2c2c2;
+
+	--twitter: #2ca6df;
+	--linkedin: #0077b5;
+	--github: #ea8522;
+	--dribble: #ea4c89;
+}

@@ -1,18 +1,6 @@
 import Link from 'next/link';
-import Footer from '../../components/parts/BlogFooter';
-
-type Post = {
-	title: string;
-	slug: string;
-	reading_time: Float32Array;
-	custom_excerpt: string;
-	tags;
-	authors;
-	created_at: Float32Array;
-	id: string;
-	dateFormatted;
-	feature_image;
-};
+import { ReactChild, ReactFragment, ReactPortal } from 'react';
+import Footer from '../../components/Navigation/BlogFooter';
 
 import { getPosts } from '../../util/posts';
 
@@ -22,7 +10,7 @@ export async function getStaticProps() {
 	const posts = await getPosts();
 
 	//Format the Date
-	posts.map(post => {
+	posts.map((post: { dateFormatted: string; published_at: string | number | Date }) => {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		const options: any = {
 			year: 'numeric',
