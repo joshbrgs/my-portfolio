@@ -1,51 +1,33 @@
-import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import Link from 'next/link';
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDribbble, faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 const SocialIcons: React.FC = () => {
-  const [hovered, setHovered] = useState(false);
-  const toggleHover = () => setHovered(!hovered);
-  const [hovereds, setHovereds] = useState(false);
-  const toggleHovers = () => setHovereds(!hovereds);
-  const [hovereded, setHovereded] = useState(false);
-  const toggleHovered = () => setHovereded(!hovereded);
-  return (
-    <div className="socialIcons">
-      <motion.a
-        href="https://github.com/jlifts"
-        target="blank"
-        className={hovered ? 'github social' : 'social'}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        onMouseEnter={toggleHover}
-        onMouseLeave={toggleHover}
-      >
-        <img src="/assets/github.svg" alt="github" />
-      </motion.a>
-      <motion.a
-        href="https://www.linkedin.com/in/burgess-josh/"
-        target="blank"
-        className={hovereds ? 'linkedin social' : 'social'}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        onMouseEnter={toggleHovers}
-        onMouseLeave={toggleHovers}
-      >
-        <img src="/assets/linkedin.svg" alt="linkedin" />
-      </motion.a>
-      <motion.a
-        href="https://twitter.com/bluejay_mr"
-        target="blank"
-        className={hovereded ? 'twitter social' : 'social'}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        onMouseEnter={toggleHovered}
-        onMouseLeave={toggleHovered}
-      >
-        <img src="/assets/twitter.svg" alt="twitter" />
-      </motion.a>
-      {/* Add Dribble */}
-    </div>
-  );
+	return (
+		<div className="text-white flex space-x-2">
+			<Link href="https://github.com/jlifts">
+				<a target="blank" className="hover:text-github">
+					<FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
+				</a>
+			</Link>
+			<Link href="https://www.linkedin.com/in/burgess-josh/">
+				<a target="blank" className="hover:text-linkedIn">
+					<FontAwesomeIcon icon={faLinkedin}></FontAwesomeIcon>
+				</a>
+			</Link>
+			<Link href="https://twitter.com/bluejay_mr">
+				<a target="blank" className="hover:text-twitter">
+					<FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon>
+				</a>
+			</Link>
+			<Link href="https://dribbble.com/JBurgessDev">
+				<a target="blank" className="hover:text-dribble">
+					<FontAwesomeIcon icon={faDribbble}></FontAwesomeIcon>
+				</a>
+			</Link>
+		</div>
+	);
 };
 
 export default SocialIcons;

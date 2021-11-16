@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { Hero, MainLoading } from '../components';
+import Layout from '../layouts/Layout';
 
 //Components
-import Nav from '../components/parts/Nav';
-import Footer from '../components/Navigation/Footer';
-import Hero from '../components/Hero';
-import Projects from '../components/Projects';
-import Contact from '../components/Contact';
-import About from '../components/About';
-import MobileMenu from '../components/parts/MobileMenu';
-import MainLoading from '../components/Animations/MainLoading';
 
 //Landing Page
 const Home: React.FC = () => {
@@ -20,15 +14,9 @@ const Home: React.FC = () => {
 			{loading ? (
 				<MainLoading setLoading={setLoading} />
 			) : (
-				<>
+				<Layout>
 					<Hero />
-					<Nav />
-					<Projects />
-					<Contact />
-					<About />
-					<Footer />
-					<MobileMenu />
-				</>
+				</Layout>
 			)}
 		</AnimatePresence>
 	);

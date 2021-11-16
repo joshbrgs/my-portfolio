@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import React from 'react';
 import { FB_PIXEL_ID } from './FBPixel';
 import { GA_TRACKING_ID } from './GA';
@@ -6,7 +5,7 @@ import Meta from './Meta';
 
 const SEO = () => {
 	return (
-		<Head>
+		<>
 			{/* Google Analytics */}
 			<script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
 			<script
@@ -37,7 +36,7 @@ const SEO = () => {
 				}}
 			/>
 			<Meta>{/* Links */}</Meta>
-		</Head>
+		</>
 	);
 };
 

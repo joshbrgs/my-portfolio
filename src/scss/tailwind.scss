@@ -2,6 +2,9 @@
 @import '~tailwindcss/components';
 @import '~tailwindcss/utilities';
 
+@import 'typography';
+@import 'custom';
+
 :root {
 	--color-primary: #117dac;
 	--color-secondary: #ed1c24;

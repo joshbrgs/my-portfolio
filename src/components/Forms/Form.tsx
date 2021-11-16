@@ -42,7 +42,13 @@ export default function Form(): React.ReactElement {
 	// }
 
 	//Netlify Forms
-	const onSubmitForm = async (e: any, setSubmitText: { (value: any): void; (arg0: string): void }) => {
+	async function onSubmitForm({
+		e,
+		setSubmitText,
+	}: {
+		e: React.FormEvent<HTMLFormElement>;
+		setSubmitText: { (value: React.SetStateAction<null>): void; (arg0: string): void };
+	}): Promise<void> {
 		e.preventDefault();
 		setSubmitText('Submitting ...');
 		const formElements = [...e.currentTarget.elements];
@@ -64,7 +70,7 @@ export default function Form(): React.ReactElement {
 			.catch(_ => {
 				setSubmitText('There was an error with your submission, please email me using burgessj247@gmail.com.');
 			});
-	};
+	}
 
 	//Notify Status
 	const [submitText, setSubmitText] = useState(null);
@@ -104,7 +110,7 @@ export default function Form(): React.ReactElement {
 		<form
 			// onSubmit={handleSubmit(onSubmitForm)} Nodemailer
 			// Netlify until OAuth Ironed out
-			onSubmit={e => onSubmitForm(e, setSubmitText)}
+			onSubmit={e => onSubmitForm({ e, setSubmitText })}
 			method="POST"
 			data-netlify="true"
 			name="contact-form">

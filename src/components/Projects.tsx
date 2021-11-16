@@ -1,6 +1,5 @@
-import Cards from './UI/Cards';
 import React, { useState, useEffect } from 'react';
-import CardsL from './parts/CardsL';
+import { CardsL, Cards } from '.';
 
 function Projects(): React.ReactElement {
 	const [offsetY, setOffsetY] = useState(0);

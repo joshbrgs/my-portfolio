@@ -1,19 +1,23 @@
-import 'normalize.css/normalize.css';
-import 'scss/tailwind.scss';
-import 'react-toastify/dist/ReactToastify.css';
-import { motion } from 'framer-motion';
+import React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 import { ToastContainer } from 'react-toastify';
+import { FacebookPixel, GoogleAnalyticsTag } from '../components/tags';
+import 'normalize.css/normalize.css';
+import '../scss/tailwind.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
-const MyApp: React.FunctionComponent<App> = ({ Component, pageProps, router }) => {
+const MyApp: React.FunctionComponent<App> = ({ Component, pageProps }) => {
 	return (
-		<motion.div
-			key={router.route}
-			initial={{ opacity: 0, y: 0 }}
-			animate={{ opacity: 1, y: 20 }}
-			transition={{ transition: 'ease-in-out' }}>
-			<Component {...pageProps} />
-			<ToastContainer />
-		</motion.div>
+		<>
+			<FacebookPixel>
+				<GoogleAnalyticsTag>
+					<ChakraProvider>
+						<Component {...pageProps} />
+						<ToastContainer />
+					</ChakraProvider>
+				</GoogleAnalyticsTag>
+			</FacebookPixel>
+		</>
 	);
 };
 

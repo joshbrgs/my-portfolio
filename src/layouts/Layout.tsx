@@ -1,7 +1,14 @@
 import React from 'react';
+import { NavBar, Footer } from '../components';
 
-const Layout = ({ children }): JSX.Element => {
-	return <div>{children}</div>;
+const Layout = ({ children }: any): JSX.Element => {
+	return (
+		<>
+			<NavBar />
+			{children}
+			<Footer />
+		</>
+	);
 };
 
 export default Layout;

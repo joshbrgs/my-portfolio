@@ -1,7 +1,5 @@
 // SCSS Custom Rules
 
-@import 'typography';
-
 body {
 	overflow-x: hidden;
 
@@ -16,6 +14,9 @@ body {
 		border-radius: 2em;
 	}
 }
+
+// Input label hover effect
+
 input:focus-within ~ label,
 input:not(:placeholder-shown) ~ label {
 	@apply transform scale-75 -translate-y-6;
@@ -34,6 +35,8 @@ textarea:focus-within ~ label {
 	@apply text-secondary;
 }
 
+// The Nav Hamburger
+
 .rotate {
 	transform: rotate(45deg) translateY(11px);
 }
@@ -43,22 +46,22 @@ textarea:focus-within ~ label {
 .disapear {
 	opacity: 0;
 }
-.active {
-	border-bottom: 1px solid white;
-}
-#signup-check:checked ~ .check {
-	@apply opacity-100;
-	animation: check-anime 0.5s 1;
-}
 
-@keyframes check-anime {
-	0% {
-		@apply transform scale-100;
-	}
-	50% {
-		@apply transform scale-150 opacity-0;
-	}
-	100% {
-		@apply transform scale-100;
-	}
+// Border expand the bottom
+
+.expand:after {
+	display: block;
+	content: '';
+	border-bottom: solid 3px #019fb6;
+	transform: scaleX(0);
+	transition: transform 250ms ease-in-out;
+}
+.expand:hover:after {
+	transform: scaleX(1);
+}
+.expand.fromRight:after {
+	transform-origin: 100% 50%;
+}
+.expand.fromLeft:after {
+	transform-origin: 0% 50%;
 }

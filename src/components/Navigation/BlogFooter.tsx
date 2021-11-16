@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import SocialIcons from '../UI/SocialIcons';
 
-const Footer: React.FC = () => {
+export const BlogFooter: React.FC = () => {
 	return (
 		<div className="footer blogger">
 			<p>
@@ -23,5 +23,3 @@ const Footer: React.FC = () => {
 		</div>
 	);
 };
-
-export default Footer;
