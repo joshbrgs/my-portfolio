@@ -1,13 +1,11 @@
 import Link from 'next/link';
-import { ReactChild, ReactFragment, ReactPortal } from 'react';
-import Footer from '../../components/Navigation/BlogFooter';
-
+import { Footer } from '../../components';
 import { getPosts } from '../../util/posts';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function getStaticProps() {
 	//context was param
-	const posts = await getPosts();
+	const posts: any = await getPosts();
 
 	//Format the Date
 	posts.map((post: { dateFormatted: string; published_at: string | number | Date }) => {

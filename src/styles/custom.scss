@@ -1,0 +1,129 @@
+// SCSS Custom Rules
+
+body {
+	overflow-x: hidden;
+
+	&::-webkit-scrollbar {
+		width: 12px;
+	}
+	&::-webkit-scrollbar-track {
+		box-shadow: none;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: rgb(78, 78, 78);
+		border-radius: 2em;
+	}
+}
+
+// Input label hover effect
+
+input:focus-within ~ label,
+input:not(:placeholder-shown) ~ label {
+	@apply transform scale-75 -translate-y-6;
+}
+
+input:focus-within ~ label {
+	@apply text-secondary;
+}
+
+textarea:focus-within ~ label,
+textarea:not(:placeholder-shown) ~ label {
+	@apply transform scale-75 -translate-y-6;
+}
+
+textarea:focus-within ~ label {
+	@apply text-secondary;
+}
+
+// The Nav Hamburger
+
+.rotate {
+	transform: rotate(45deg) translateY(11px);
+}
+.rotateReverse {
+	transform: rotate(-45deg) translateY(-11px);
+}
+.disapear {
+	opacity: 0;
+}
+
+// Border expand the bottom
+
+.expand:after {
+	display: block;
+	content: '';
+	border-bottom: solid 3px #019fb6;
+	transform: scaleX(0);
+	transition: transform 250ms ease-in-out;
+}
+.expand:hover:after {
+	transform: scaleX(1);
+}
+.expand.fromRight:after {
+	transform-origin: 100% 50%;
+}
+.expand.fromLeft:after {
+	transform-origin: 0% 50%;
+}
+
+.active {
+	display: block;
+	content: '';
+	border-bottom: solid 3px #019fb6;
+}
+p {
+	.hover-reveal {
+		background-image: url(/assets/hover-word.gif);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: auto 100%;
+		color: inherit;
+		cursor: default;
+		font: inherit;
+		font-size: inherit;
+		position: relative;
+	}
+	.hover {
+		transition: opacity 0.3s ease-in-out, transform 0.55s ease-in-out, -webkit-transform 0.55s ease-in-out;
+		transform: translate3d(-50%, 0, 0);
+		backface-visibility: hidden;
+		bottom: 0;
+		height: auto;
+		left: 50%;
+		opacity: 0;
+		pointer-events: none;
+		position: absolute;
+	}
+	img.hover.reveal {
+		opacity: 1 !important;
+		transform: translate3d(-50%, -30px, 0);
+	}
+}
+
+h2 {
+	/* you can change these variables to control the border */
+	--border-width: 5px;
+	--bottom-distance: 0px; /* you can increase this */
+
+	display: inline; /* should be 'inline' for multiple line animation */
+	background-image: linear-gradient(var(--color-third), var(--color-third));
+	background-size: 0% var(--border-width);
+	background-repeat: no-repeat;
+	transition: background-size 0.5s;
+}
+
+.fromCenter {
+	background-position: 50% calc(100% - var(--bottom-distance));
+}
+
+.fromRight {
+	background-position: 100% calc(100% - var(--bottom-distance));
+}
+
+.fromLeft {
+	background-position: 0 calc(100% - var(--bottom-distance));
+}
+
+h2:hover {
+	background-size: 100% var(--border-width);
+}

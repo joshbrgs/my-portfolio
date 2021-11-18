@@ -1,19 +1,17 @@
 import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
-import { ToastContainer } from 'react-toastify';
-import { FacebookPixel, GoogleAnalyticsTag } from '../components/tags';
+import { FacebookPixel, GoogleAnalyticsTag } from '../components';
 import 'normalize.css/normalize.css';
-import '../scss/tailwind.scss';
-import 'react-toastify/dist/ReactToastify.css';
+import '../styles/tailwind.scss';
+import { theme } from '../styles/theme';
 
 const MyApp: React.FunctionComponent<App> = ({ Component, pageProps }) => {
 	return (
 		<>
 			<FacebookPixel>
 				<GoogleAnalyticsTag>
-					<ChakraProvider>
+					<ChakraProvider theme={theme}>
 						<Component {...pageProps} />
-						<ToastContainer />
 					</ChakraProvider>
 				</GoogleAnalyticsTag>
 			</FacebookPixel>

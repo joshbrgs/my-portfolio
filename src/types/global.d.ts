@@ -52,9 +52,10 @@ type Post = {
 	reading_time: Float32Array;
 	custom_excerpt: string;
 	tags: { name: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }[];
-	authors: { name: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }[];
+	authors: { name: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined; profile_image: any }[];
 	created_at: Float32Array;
 	id: string;
 	dateFormatted: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined;
 	feature_image: string | undefined;
+	html: any;
 };

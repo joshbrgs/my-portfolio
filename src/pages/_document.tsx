@@ -9,6 +9,7 @@ class MyDocument extends Document {
 					<HeadScripts />
 				</Head>
 				<body>
+					{/* <ColorModeScript initialColorMode={theme.config.initialColorMode} /> */}
 					<Main />
 					<NextScript />
 				</body>

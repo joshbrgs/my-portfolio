@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { Hero, MainLoading } from '../components';
-import Layout from '../layouts/Layout';
+import { Layout, ProjectsLayout, CaseStudyLayout } from '../layouts';
+import { Hero, Quote } from '../components';
+import MainLoading from '../components/Animations/MainLoading';
 
 //Components
 
@@ -16,6 +17,9 @@ const Home: React.FC = () => {
 			) : (
 				<Layout>
 					<Hero />
+					<Quote />
+					<ProjectsLayout />
+					<CaseStudyLayout />
 				</Layout>
 			)}
 		</AnimatePresence>

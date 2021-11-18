@@ -1,27 +1,23 @@
-import MainLoading from './Animations/MainLoading';
-import EmailForm from './Forms/Form';
-import Hero from './Hero';
-import Loading from './UI/Loading';
-import { BlogFooter } from './Navigation/BlogFooter';
-import Footer from './Navigation/Footer';
-import Projects from './Projects';
-import Cards from './UI/Cards';
-import { CardsL } from './UI/CardsL';
-import SocialIcons from './UI/SocialIcons';
-import NavBar from './Navigation/NavBar';
-import Drawer from './Navigation/Drawer';
+import { Form } from './Forms';
+import { BlogFooter, Drawer, Footer, Menu, NavBar } from './Navigation';
+import { FacebookPixel, GoogleAnalyticsTag } from './tags';
+import { Cards, CardsL, HamburgerButton, Hero, Loading, Project, Quote, SocialIcons } from './UI';
 
 export {
-	MainLoading,
-	EmailForm,
+	Form,
 	BlogFooter,
+	Drawer,
 	Footer,
+	Menu,
+	NavBar,
+	FacebookPixel,
+	GoogleAnalyticsTag,
 	Cards,
 	CardsL,
-	SocialIcons,
+	HamburgerButton,
 	Hero,
 	Loading,
-	Projects,
-	NavBar,
-	Drawer,
+	Project,
+	Quote,
+	SocialIcons,
 };

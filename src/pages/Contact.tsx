@@ -2,7 +2,8 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Form from '../components/Forms/Form';
+import { Form } from '../components';
+
 // import ContactTitle from './parts/ContactTitle';
 
 const Contact = () => {

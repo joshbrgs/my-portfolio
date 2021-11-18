@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import React from 'react';
+import Link from 'next/link';
 
 interface IMenu {
 	vertical: boolean;
@@ -10,16 +10,16 @@ const Menu = ({ vertical, className }: IMenu): JSX.Element => {
 	return (
 		<nav className={`${className} flex ${vertical && 'flex-col'} uppercase`}>
 			<Link href="/">
-				<span className="expand fromLeft">My Work</span>
+				<span className="expand fromCenter cursor-pointer">My Work</span>
 			</Link>
 			<Link href="/about">
-				<span className="expand fromLeft">About</span>
+				<span className="expand fromCenter cursor-pointer">About</span>
 			</Link>
 			<Link href="/contact">
-				<span className="expand fromLeft">Contact</span>
+				<span className="expand fromCenter cursor-pointer">Contact</span>
 			</Link>
 			<Link href="/blog">
-				<span className="expand fromLeft">Blog</span>
+				<span className="expand fromCenter cursor-pointer">Blog</span>
 			</Link>
 		</nav>
 	);

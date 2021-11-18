@@ -5,7 +5,7 @@ import { faDribbble, faGithub, faLinkedin, faTwitter } from '@fortawesome/free-b
 
 const SocialIcons: React.FC = () => {
 	return (
-		<div className="text-white flex space-x-2">
+		<div className="flex space-x-2">
 			<Link href="https://github.com/jlifts">
 				<a target="blank" className="hover:text-github">
 					<FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>

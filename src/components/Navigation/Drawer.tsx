@@ -1,5 +1,4 @@
 import {
-	Button,
 	Drawer,
 	DrawerBody,
 	DrawerCloseButton,
@@ -7,16 +6,21 @@ import {
 	DrawerFooter,
 	DrawerHeader,
 	DrawerOverlay,
-	Input,
+	Switch,
+	useColorMode,
 } from '@chakra-ui/react';
-import React, { useRef, useReducer } from 'react';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useReducer } from 'react';
+import { SocialIcons } from '..';
 import { hamburgerReducer, InitialState } from '../../reducers/hamburgerReducer';
 import HamburgerButton from '../UI/HamburgerButton';
 import Menu from './Menu';
 
 const DrawerNav = () => {
-	const btnRef = useRef();
+	// const btnRef = useRef();
 	const [state, dispatch] = useReducer(hamburgerReducer, InitialState);
+	const { colorMode, toggleColorMode } = useColorMode();
 
 	const handleOpen = () => {
 		dispatch({
@@ -35,28 +39,33 @@ const DrawerNav = () => {
 	return (
 		<>
 			<HamburgerButton
-				ref={btnRef}
+				// ref={btnRef}
 				onClick={handleOpen}
 				rotate={rotate}
 				disapear={disappear}
 				rotateReverse={rotateReverse}
 			/>
-			<Drawer isOpen={isOpen} placement="left" onClose={handleClose} finalFocusRef={btnRef.current}>
+			<Drawer isOpen={isOpen} placement="right" onClose={handleClose}>
 				<DrawerOverlay />
 				<DrawerContent>
 					<DrawerCloseButton />
-					<DrawerHeader>Create your account</DrawerHeader>
+					<DrawerHeader>
+						<div className="flex space-x-3">
+							<Switch onChange={toggleColorMode} />
+							{colorMode === 'dark' ? (
+								<FontAwesomeIcon icon={faMoon} />
+							) : (
+								<FontAwesomeIcon icon={faSun} />
+							)}
+						</div>
+					</DrawerHeader>
 
 					<DrawerBody>
-						<Input placeholder="Type here..." />
 						<Menu vertical className="space-y-3 my-3 text-xl w-full" />
 					</DrawerBody>
 
 					<DrawerFooter>
-						<Button variant="outline" mr={3} onClick={handleClose}>
-							Cancel
-						</Button>
-						<Button colorScheme="blue">Save</Button>
+						<SocialIcons />
 					</DrawerFooter>
 				</DrawerContent>
 			</Drawer>

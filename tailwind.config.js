@@ -21,6 +21,10 @@ module.exports = {
 			},
 			fontSize: {
 				xs: '.75rem',
+				'10xl': '9rem',
+			},
+			backgroundImage: {
+				'hero-icon': "url('/assets/Icon.svg')",
 			},
 		},
 		screens: {
