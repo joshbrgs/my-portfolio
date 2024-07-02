@@ -2,6 +2,12 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import BlogPost from "../components/BlogPost.astro";
+import { MediumArticles } from "medium-article-api";
+
+const mediumArticles = MediumArticles();
+const username = "burgessj247";
+
+const articles = await mediumArticles.getLatestArticlesTitle(username);
 
 import "../styles/global.css";
 
@@ -13,9 +19,22 @@ const pageTitle: String = "Blog";
   <p>This is where I will post about my journey learning Astro.</p>
   <ul>
     {
+      articles.map((post: any) => (
+        <BlogPost title={post} url={`/med/${post}/`} />
+      ))
+    }
+
+    {
       allPosts.map((post) => (
         <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />
       ))
     }
   </ul>
+  <p>
+    You can also follow me on <a
+      href="https://medium.com/@burgessj247"
+      target="_blank"
+      rel="noopener noreferrer">Medium!</a
+    >
+  </p>
 </BaseLayout>

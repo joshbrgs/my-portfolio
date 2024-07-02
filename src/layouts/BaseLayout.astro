@@ -2,10 +2,10 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
-const { pageTitle, description = "My Portfolio site!" } = Astro.props;
+const {pageTitle, description = "My Portfolio site!"} = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" data-theme="light" id="webPage">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -17,7 +17,7 @@ const { pageTitle, description = "My Portfolio site!" } = Astro.props;
   </head>
   <body>
     <Header />
-    <h1>{pageTitle}</h1>
+    <div class="mt-24" />
     <slot />
     <Footer />
     <script>

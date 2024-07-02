@@ -1,7 +1,9 @@
 ---
 import Social from "./Social.astro";
+import Form from "./Form";
 ---
 
+<Form client:load />
 <footer class="footer bg-neutral text-neutral-content items-center p-4">
   <aside class="grid-flow-col items-center">
     <svg
@@ -132,11 +134,28 @@ import Social from "./Social.astro";
         ></g
       ></svg
     >
-    <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
+    <p class="cursor-default">
+      Copyright © {new Date().getFullYear()} - All right reserved
+    </p>
   </aside>
+
+  <div>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+      data-name="bmc-button"
+      data-slug="josh.burgess"
+      data-color="#FFDD00"
+      data-emoji="☕"
+      data-font="Poppins"
+      data-text="Buy me a coffee"
+      data-outline-color="#000000"
+      data-font-color="#000000"
+      data-coffee-color="#ffffff"></script>
+  </div>
   <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-    <Social username="he" platform="github" />
-    <Social username="hi" platform="linkedin" />
-    <Social username="hi" platform="facebook" />
+    <Social username="joshbrgs" platform="github" />
+    <Social username="in/burgess-josh" platform="linkedin" />
+    <Social username="profile.php?id=100007099321510" platform="facebook" />
   </nav>
 </footer>

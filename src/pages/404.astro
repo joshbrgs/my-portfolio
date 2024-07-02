@@ -3,5 +3,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Not Found" description="404 Error — this page was not found">
-  <h1>404 Page not Found</h1>
+  <div class="hero bg-base-200 min-h-screen -mt-28">
+    <div class="hero-content text-center">
+      <div class="max-w-md flex flex-col justify-evenly">
+        <img
+          alt="Thanos"
+          src="https://preview.redd.it/c4tumrrnm1zc1.png?auto=webp&s=59f69556b456ef618c9530520fae5c71bf2e2559"
+        />
+        <h1 class="text-5xl font-bold">404</h1>
+
+        <p class="py-6">
+          Looks like this page got Thanos snapped out of existence!
+        </p>
+        <a href="/" class="btn btn-primary">Go Home</a>
+      </div>
+    </div>
+  </div>
 </BaseLayout>
