@@ -1,22 +1,18 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import Container from "@components/container.astro";
+import Layout from "@layouts/Layout.astro";
 ---
 
-<BaseLayout title="Not Found" description="404 Error — this page was not found">
-  <div class="hero bg-base-200 min-h-screen -mt-28">
-    <div class="hero-content text-center">
-      <div class="max-w-md flex flex-col justify-evenly">
-        <img
-          alt="Thanos"
-          src="https://preview.redd.it/c4tumrrnm1zc1.png?auto=webp&s=59f69556b456ef618c9530520fae5c71bf2e2559"
-        />
-        <h1 class="text-5xl font-bold">404</h1>
-
-        <p class="py-6">
-          Looks like this page got Thanos snapped out of existence!
+<Layout title="404 Not Found">
+  <Container>
+    <div class="min-h-[calc(100vh-16rem)] flex items-center justify-center">
+      <div class="mt-16 text-center">
+        <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">404</h1>
+        <p class="text-lg mt-4 text-slate-600">
+          Ooops... Page not found. I guess I got something wrong and left a link
+          broken.
         </p>
-        <a href="/" class="btn btn-primary">Go Home</a>
       </div>
     </div>
-  </div>
-</BaseLayout>
+  </Container>
+</Layout>

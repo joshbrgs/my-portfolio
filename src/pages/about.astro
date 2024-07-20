@@ -1,205 +1,40 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
-
-import "../styles/global.css";
-
-const pageTitle: String = "About Me";
-
-const identity = {
-  firstName: "Sarah",
-  country: "Canada",
-  occupation: "Technical Writer",
-  hobbies: ["photography", "birdwatching", "baseball"],
-};
-
-const skills: String[] = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "React",
-  "Astro",
-  "Writing Docs",
-];
-
-const happy = true;
-const finished = false;
-const goal = 3;
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import LottieAnimation from "astro-integration-lottie/Lottie.astro";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <Hero />
-  <h2>... and my new Astro site!</h2>
+<Layout title="About">
+  <Container>
+    <main
+      class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
+      <div class="py-6 h-20 w-20 md:order-1 hidden md:block">
+        <LottieAnimation src="assets/eyboard.json" autoplay="visible" />
+      </div>
+      <div>
+        <span
+          class="outlined-text text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter"
+          >A Little About</span
+        >
+        <h1
+          class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+          ME
+        </h1>
+      </div>
+    </main>
+  </Container>
+</Layout>
 
-  <p>
-    I am working through Astro's introductory tutorial. This is the second page
-    on my website, and it's the first one I built myself!
-  </p>
-
-  <p>
-    This site will update as I complete more of the tutorial, so keep checking
-    back and see how my journey is going!
-  </p>
-
-  <p>Here are a few facts about me:</p>
-  <ul>
-    <li>My name is {identity.firstName}.</li>
-    <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-    {
-      identity.hobbies.length >= 2 && (
-        <li>
-          Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
-        </li>
-      )
-    }
-  </ul>
-  <p>My skills are:</p>
-  <ul>
-    {skills.map((skill) => <li class="skill">{skill}</li>)}
-  </ul>
-
-  {happy && <p>I am happy to be learning Astro!</p>}
-
-  {finished && <p>I finished this tutorial!</p>}
-
-  {
-    goal === 3 ? (
-      <p>My goal is to finish in 3 days.</p>
-    ) : (
-      <p>My goal is not 3 days.</p>
-    )
+<style>
+  span.outlined-text {
+    /*-webkit-text-stroke: 1px black;*/
+    color: white;
+    text-shadow:
+      3px 3px 0 #000,
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
   }
-  <ul class="timeline timeline-vertical">
-    <li>
-      <div class="timeline-start">1984</div>
-      <div class="timeline-middle">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          class="h-5 w-5"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-            clip-rule="evenodd"></path>
-        </svg>
-      </div>
-      <div class="timeline-end">
-        <div class="flex">
-          <img
-            src="/aws_sa_badge.png"
-            alt="AWS Badge"
-            height="150"
-            width="150"
-          />
-          <p>
-            Description Paragraph Lorem, ipsum dolor sit amet consectetur
-            adipisicing elit. Nobis rerum ullam deserunt enim dolorem quibusdam
-            repellendus distinctio aspernatur architecto atque unde saepe
-            quisquam eius, at mollitia doloribus corporis pariatur. Beatae.
-          </p>
-        </div>
-      </div>
-      <hr />
-    </li>
-    <li>
-      <hr />
-      <div class="timeline-end">1998</div>
-      <div class="timeline-middle">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          class="h-5 w-5"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-            clip-rule="evenodd"></path>
-        </svg>
-      </div>
-      <div class="timeline-start timeline-box">
-        <div class="flex">
-          <img
-            src="/aws_dev_badge.png"
-            alt="AWS Badge"
-            height="150"
-            width="150"
-          />
-          <p>
-            Description Paragraph Lorem, ipsum dolor sit amet consectetur
-            adipisicing elit. Nobis rerum ullam deserunt enim dolorem quibusdam
-            repellendus distinctio aspernatur architecto atque unde saepe
-            quisquam eius, at mollitia doloribus corporis pariatur. Beatae.
-          </p>
-        </div>
-      </div>
-      <hr />
-    </li>
-    <li>
-      <hr />
-      <div class="timeline-start">2001</div>
-      <div class="timeline-middle">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          class="h-5 w-5"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-            clip-rule="evenodd"></path>
-        </svg>
-      </div>
-      <div class="timeline-end timeline-box">
-        <div class="flex">
-          <img
-            src="/aws_ml_badge.png"
-            alt="AWS Badge"
-            height="150"
-            width="150"
-          />
-
-          <p>
-            Description Paragraph Lorem, ipsum dolor sit amet consectetur
-            adipisicing elit. Nobis rerum ullam deserunt enim dolorem quibusdam
-            repellendus distinctio aspernatur architecto atque unde saepe
-            quisquam eius, at mollitia doloribus corporis pariatur. Beatae.
-          </p>
-        </div>
-      </div>
-      <hr />
-    </li>
-    <li>
-      <hr />
-      <div class="timeline-end">2007</div>
-      <div class="timeline-middle">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          class="h-5 w-5"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-            clip-rule="evenodd"></path>
-        </svg>
-      </div>
-      <div class="timeline-start timeline-box">
-        <div class="flex">
-          <img src="/KCNA_badge.png" alt="AWS Badge" height="150" width="150" />
-          <p>
-            Description Paragraph Lorem, ipsum dolor sit amet consectetur
-            adipisicing elit. Nobis rerum ullam deserunt enim dolorem quibusdam
-            repellendus distinctio aspernatur architecto atque unde saepe
-            quisquam eius, at mollitia doloribus corporis pariatur. Beatae.
-          </p>
-        </div>
-      </div>
-      <hr />
-    </li>
-  </ul>
-</BaseLayout>
+</style>

@@ -1,5 +1,15 @@
 declare module 'astro:content' {
 	interface Render {
+		'.mdx': Promise<{
+			Content: import('astro').MarkdownInstance<{}>['Content'];
+			headings: import('astro').MarkdownHeading[];
+			remarkPluginFrontmatter: Record<string, any>;
+		}>;
+	}
+}
+
+declare module 'astro:content' {
+	interface Render {
 		'.md': Promise<{
 			Content: import('astro').MarkdownInstance<{}>['Content'];
 			headings: import('astro').MarkdownHeading[];
@@ -125,29 +135,14 @@ declare module 'astro:content' {
 	>;
 
 	type ContentEntryMap = {
-		"posts": {
-"post-1.md": {
-	id: "post-1.md";
-  slug: "post-1";
+		"team": Record<string, {
+  id: string;
+  slug: string;
   body: string;
-  collection: "posts";
-  data: InferEntrySchema<"posts">
-} & { render(): Render[".md"] };
-"post-2.md": {
-	id: "post-2.md";
-  slug: "post-2";
-  body: string;
-  collection: "posts";
-  data: InferEntrySchema<"posts">
-} & { render(): Render[".md"] };
-"post-3.md": {
-	id: "post-3.md";
-  slug: "post-3";
-  body: string;
-  collection: "posts";
-  data: InferEntrySchema<"posts">
-} & { render(): Render[".md"] };
-};
+  collection: "team";
+  data: any;
+  render(): Render[".md"];
+}>;
 
 	};
 

@@ -1,20 +1,11 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
-import Overview from "../components/Overview.astro";
-import Project from "../components/Project.astro";
-
-const pageTitle = "Home Page";
+import Container from "@components/container.astro";
+import Hero from "@components/hero.astro";
+import Layout from "@layouts/Layout.astro";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <Hero
-    title="Hi I'm Josh Burgess"
-    subTitle="Description Paragraph Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis rerum ullam deserunt enim dolorem quibusdam repellendus distinctio aspernatur architecto atque unde saepe quisquam eius, at mollitia doloribus corporis pariatur. Beatae."
-    buttonText="Hire ME"
-  />
-
-  <Overview />
-  <p>Case Studies & Projects</p>
-  <Project />
-</BaseLayout>
+<Layout title="">
+  <Container>
+    <Hero />
+  </Container>
+</Layout>
