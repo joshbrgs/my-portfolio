@@ -2,10 +2,16 @@
 import Container from "@components/container.astro";
 import Hero from "@components/hero.astro";
 import Layout from "@layouts/Layout.astro";
+import SectionStat from "@components/sectionStat.astro";
 ---
 
 <Layout title="">
   <Container>
     <Hero />
+    <div class="flex justify-evenly cursor-default">
+      <SectionStat stat="+6500" label="Commits" />
+      <SectionStat stat="+600" label="PRs" />
+      <SectionStat stat="> 25" label="Projects" />
+    </div>
   </Container>
 </Layout>
