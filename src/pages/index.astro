@@ -1,8 +1,15 @@
 ---
 import Container from "@components/container.astro";
-import Hero from "@components/hero.astro";
+import Hero from "@components/Hero.astro";
 import Layout from "@layouts/Layout.astro";
 import SectionStat from "@components/sectionStat.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Timeline from "@components/timeline.astro";
+import {Image} from "astro:assets"
+import badges from "../assets/Badges.png"
+import bachelors from "../assets/pittsburgh_panthers_logo_secondary_20199698.png"
+import masters from "../assets/penn_state_football.png"
+import Card from "@components/card.astro"
 ---
 
 <Layout title="">
@@ -13,5 +20,79 @@ import SectionStat from "@components/sectionStat.astro";
       <SectionStat stat="+600" label="PRs" />
       <SectionStat stat="> 25" label="Projects" />
     </div>
+    <section class="parallax-section my-2 flex justify-center items-center">
+      <Image src={badges} alt="My badges earned in the Cloud Space" />
+    </section>
+    <div class="space-y-20 mb-10"> 
+      <Card sourced={bachelors} altText="H2P - Pitt Panthers" title="Bachelors of Science in Business Administration" message="Graduate of 2020"/>
+      <Card sourced={masters} altText="WE ARE ... PENN STATE" title="Graduate Certificate in Software Design and Architecture" message="Expected Graduation Date 2025"/>
+</div>
+
   </Container>
 </Layout>
+
+<style lang="scss"> 
+  .parallax-section {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  .parallax-image {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 150%;
+    object-fit: cover;
+    transform: translateX(-50%);
+  }
+
+  .parallax-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    opacity: 0; /* Initially hidden for fade-in effect */
+  }
+
+  .content-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Parallax effect
+    gsap.to('.parallax-image', {
+      yPercent: 20,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.parallax-section',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+
+    // Fade-in effect
+    gsap.fromTo('.parallax-content', {
+      opacity: 0,
+      y: 50
+    }, {
+      opacity: 1,
+      y: 0,
+      scrollTrigger: {
+        trigger: '.parallax-content',
+        start: 'top 80%',
+        end: 'top 60%',
+        scrub: true
+      }
+    });
+  });
+</script>

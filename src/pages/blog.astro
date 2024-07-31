@@ -4,7 +4,6 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
 import { MediumArticles } from "medium-article-api";
-import Link from "@components/ui/link.astro";
 
 const mediumArticles = MediumArticles();
 const username = "burgessj247";
@@ -25,7 +24,8 @@ const publishedBlogEntries = await mediumArticles.getData(username);
     <Sectionhead>
       <Fragment slot="title">My Blog</Fragment>
       <Fragment slot="desc">
-        I write about building software and business. You can also follow me on
+        I write about building software and estabalishing startups. You can also
+        follow me on
         <a
           href="https://medium.com/@burgessj247"
           target="_blank"

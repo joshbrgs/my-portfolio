@@ -38,7 +38,7 @@ const SubscribeForm = () => {
   };
 
   return (
-    <section
+    <div
       id="subscribe"
       className="flex flex-col items-center w-full space-y-10 my-20"
     >
@@ -46,7 +46,7 @@ const SubscribeForm = () => {
         <h2 className="outlined-text text-3xl lg:text-4xl xl:text-5xl font-bold lg:tracking-tight xl:tracking-tighter">
           Become a Subscriber
         </h2>
-        <p className="text-lg lg:text-xl xl:text-2xl font-bold lg:tracking-tight xl:tracking-tighter">
+        <p className=" text-gray-500 text-lg lg:text-xl xl:text-2xl lg:tracking-tight xl:tracking-tighter">
           Get exclusive discounts and notifications of events!
         </p>
       </div>
@@ -73,7 +73,7 @@ const SubscribeForm = () => {
             Subscribe
           </button>
         </div>
-        <p>
+        <p className="text-gray-500">
           I care about your data. Read my{" "}
           <a
             href="/privacy"
@@ -86,7 +86,7 @@ const SubscribeForm = () => {
         </p>
       </form>
       <ToastContainer />
-    </section>
+    </div>
   );
 };
 

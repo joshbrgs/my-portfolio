@@ -1,0 +1,19 @@
+---
+import {Image} from "astro:assets"
+
+const { sourced = "https://loremflickr.com/g/320/240/team", altText = "Prop", message, title, subtitle } = Astro.props;
+---
+
+<div class="max-w-md mx-auto cursor-default bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+    <div class="md:flex">
+        <div class="md:shrink-0">
+          <Image class="h-48 w-full object-cover md:h-full md:w-48" inferSize={true} src={sourced} alt={altText}>
+        </div>
+        <div class="p-8">
+          <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{subtitle}</div>
+            <p class="block mt-1 text-lg leading-tight font-medium text-black">{title}
+            </p>
+            <p class="mt-2 text-slate-500">{message}            </p>
+        </div>
+    </div>
+</div>
