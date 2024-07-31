@@ -38,7 +38,7 @@ const publishedBlogEntries = await mediumArticles.getData(username);
       <ul class="grid gap-16 max-w-4xl mx-auto">
         {
           publishedBlogEntries?.items?.map(
-            (blogPostEntry: MediumBlog, index) => {
+            (blogPostEntry: MediumBlog, index: number) => {
               const firstImage = (blogPostEntry["description"] as any)
                 .toString()
                 .match(/<img[^>]+src="([^">]+)"/)[1];

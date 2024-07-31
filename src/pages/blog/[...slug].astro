@@ -1,5 +1,4 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import { MediumArticles } from "medium-article-api";
@@ -25,13 +24,10 @@ export async function getStaticPaths() {
 
   const articles = await mediumArticles.getData(username);
 
-  return (
-    articles.status === "ok" &&
-    articles.items.map((entry: MediumBlog) => ({
-      params: { slug: entry.title },
-      props: { entry },
-    }))
-  );
+  return articles.items.map((entry: MediumBlog) => ({
+    params: { slug: entry.title },
+    props: { entry },
+  }));
 }
 
 // Get the entry directly from the prop on render

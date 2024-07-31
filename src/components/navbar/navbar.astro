@@ -158,7 +158,7 @@ const menuitems = [
       <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
         <ul class="flex flex-col lg:flex-row lg:gap-3">
           {
-            menuitems.map((item, index) => (
+            menuitems.map((item) => (
               <>
                 <!--{item.children && (-->
                 <!--  <Dropdown-->
@@ -168,7 +168,7 @@ const menuitems = [
                 <!--  />-->
                 <!--)}-->
 
-                {!item?.children && (
+                <!--{!item?.children && (-->
                   <li>
                     <a
                       href={item.path}
@@ -176,15 +176,11 @@ const menuitems = [
                       <span> {item.title}</span>
                     </a>
                   </li>
-                )}
+                <!--)}-->
               </>
             ))
           }
         </ul>
-<!--        <div class="lg:hidden flex items-center mt-3 gap-4">-->
-<!--          <Link href="https://thegenoa.cc/quote" size="md" rel="noopener"-->
-<!--target="_blank" block>Get A Quote</Link>-->
-<!--        </div>-->
       </MenuItems>
     </Astronav>
     <div>
@@ -204,9 +200,9 @@ let prevScrollPos = window.scrollY;
 window.onscroll = function() {
   const currentScrollPos = window.scrollY;
   if (prevScrollPos > currentScrollPos) {
-    navbar.classList.remove('opacity-0');
+    navbar?.classList.remove('opacity-0');
   } else {
-    navbar.classList.add('opacity-0');
+    navbar?.classList.add('opacity-0');
   }
   prevScrollPos = currentScrollPos;
 };

@@ -5,7 +5,9 @@ import "react-toastify/dist/ReactToastify.css";
 const SubscribeForm = () => {
   const [email, setEmail] = useState<string>("");
 
-  const handleSubmit = async (event: Event) => {
+  const handleSubmit = async (
+    event: any,
+  ): Promise<void> => {
     event.preventDefault();
 
     try {
