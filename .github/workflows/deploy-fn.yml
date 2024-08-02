@@ -1,37 +1,53 @@
-name: Deploy Serverless Function to Vercel
+name: Deploy Go Cloud Function
 
 on:
   push:
     branches:
-      - main  # or the branch you want to deploy from
+      - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout the repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: '1.22'
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: "1.22"
 
-    - name: Install dependencies
-      run: go mod tidy
+      - name: Build the Go function
+        run: |
+          cd functions
+          go mod init github.com/joshbrgs/my-portfolio-api || true
+          go mod tidy
+          go build -o main
 
-    - name: Build the project
-      run: go build
+      - name: Configure gcloud CLI
+        run: |
+          echo ${{ secrets.GCP_PROJECT }} > /tmp/project
+          echo ${{ secrets.GCP_SERVICE_ACCOUNT }} > /tmp/service-account
 
-    - name: Deploy to Vercel
-      env:
-        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-        VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-      run: |
-        # Install Vercel CLI
-        npm install -g vercel
-        
-        # Deploy to Vercel
-        vercel --token $VERCEL_TOKEN --prod --confirm --env HUBSPOT_API_KEY=$HUBSPOT_API_KEY
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v0.4.0
+        with:
+          workload_identity_provider: projects/582533010918/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-provider
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+
+      - name: Set up gcloud CLI
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          project_id: ${{ secrets.GCP_PROJECT }}
+
+      - name: Deploy to Google Cloud Functions
+        run: |
+          gcloud functions deploy CreateHubspotContact \
+            --entry-point Handler \
+            --runtime go122 \
+            --trigger-http \
+            --allow-unauthenticated \
+            --region us-central1 \
+            --source functions/

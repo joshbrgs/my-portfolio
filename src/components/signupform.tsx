@@ -10,8 +10,10 @@ const SubscribeForm = () => {
   ): Promise<void> => {
     event.preventDefault();
 
+    const BASEURI = process.env.REACT_APP_API_URL;
+
     try {
-      const response = await fetch("/api/subscribe", {
+      const response = await fetch(`${BASEURI}/subscribe`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

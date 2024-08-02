@@ -21,7 +21,7 @@ type HubspotBody struct {
 	Properties []HubspotProperty `json:"properties"`
 }
 
-func handler(w http.ResponseWriter, r *http.Request) {
+func Handler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
 		return
@@ -74,6 +74,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/api/subscribe", handler)
+	http.HandleFunc("/subscribe", Handler)
 	http.ListenAndServe(":8080", nil)
 }
