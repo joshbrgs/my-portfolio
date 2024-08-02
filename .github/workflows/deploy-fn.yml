@@ -50,4 +50,5 @@ jobs:
             --trigger-http \
             --allow-unauthenticated \
             --region us-central1 \
-            --source functions/
+            --source functions/ \
+            --gen2
