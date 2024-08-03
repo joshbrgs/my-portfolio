@@ -1,0 +1,95 @@
+---
+import { Picture } from "astro:assets";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import { MediumArticles } from "medium-article-api";
+
+const mediumArticles = MediumArticles();
+const username = "burgessj247";
+
+interface MediumBlog {
+  title: string;
+  pubDate: string;
+  categories: string[];
+  description: string;
+  author: string;
+}
+
+const publishedBlogEntries = await mediumArticles.getData(username);
+---
+
+<Layout title="Blog">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">My Blog</Fragment>
+      <Fragment slot="desc">
+        I write about building software and estabalishing startups. You can also
+        follow me on
+        <a
+          href="https://medium.com/@burgessj247"
+          target="_blank"
+          class="underline"
+          rel="noopener">Medium!</a
+        >
+      </Fragment>
+    </Sectionhead>
+    <main class="mt-16">
+      <ul class="grid gap-16 max-w-4xl mx-auto">
+        {
+          publishedBlogEntries?.items?.map(
+            (blogPostEntry: MediumBlog, index: number) => {
+              const firstImage = (blogPostEntry["description"] as any)
+                .toString()
+                .match(/<img[^>]+src="([^">]+)"/)[1];
+
+              return (
+                <li>
+                  <a href={`/blog/${blogPostEntry.title}`}>
+                    <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
+                      <Picture
+                        src={firstImage}
+                        alt="thumbnail"
+                        sizes="(max-width: 800px) 100vw, 800px"
+                        width={800}
+                        height={600}
+                        loading={index <= 2 ? "eager" : "lazy"}
+                        decoding={index <= 2 ? "sync" : "async"}
+                        class="w-full rounded-md object-cover object-center bg-white"
+                      />
+                      <div>
+                        {blogPostEntry.categories.map((tag, index) => (
+                          <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
+                            {tag}
+                            {index != blogPostEntry.categories.length - 1 &&
+                              ","}
+                          </span>
+                        ))}
+
+                        <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
+                          {blogPostEntry.title}
+                        </h2>
+
+                        <div class="flex gap-2 mt-3">
+                          <span class="text-gray-400">
+                            {blogPostEntry.author}
+                          </span>
+                          <span class="text-gray-400">• </span>
+                          <time
+                            class="text-gray-400"
+                            datetime={blogPostEntry.pubDate}>
+                            {blogPostEntry.pubDate}
+                          </time>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              );
+            },
+          )
+        }
+      </ul>
+    </main>
+  </Container>
+</Layout>

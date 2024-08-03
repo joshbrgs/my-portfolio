@@ -1,0 +1,54 @@
+name: Deploy Go Cloud Function
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: "1.22"
+
+      - name: Build the Go function
+        run: |
+          cd functions
+          go mod init github.com/joshbrgs/my-portfolio-api || true
+          go mod tidy
+          go build -o main
+
+      - name: Configure gcloud CLI
+        run: |
+          echo ${{ secrets.GCP_PROJECT }} > /tmp/project
+          echo ${{ secrets.GCP_SERVICE_ACCOUNT }} > /tmp/service-account
+
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v0.4.0
+        with:
+          workload_identity_provider: projects/582533010918/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-provider
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+
+      - name: Set up gcloud CLI
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          project_id: ${{ secrets.GCP_PROJECT }}
+
+      - name: Deploy to Google Cloud Functions
+        run: |
+          gcloud functions deploy CreateHubspotContact \
+            --entry-point Handler \
+            --runtime go122 \
+            --trigger-http \
+            --allow-unauthenticated \
+            --region us-central1 \
+            --source functions/ \
+            --gen2
