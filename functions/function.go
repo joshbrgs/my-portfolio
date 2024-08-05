@@ -1,11 +1,14 @@
-package main
+package function
 
 import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
 	"os"
+
+	"github.com/GoogleCloudPlatform/functions-framework-go/functions"
 )
 
 type RequestBody struct {
@@ -21,7 +24,18 @@ type HubspotBody struct {
 	Properties []HubspotProperty `json:"properties"`
 }
 
-func Handler(w http.ResponseWriter, r *http.Request) {
+func handler(w http.ResponseWriter, r *http.Request) {
+	if r.Method == http.MethodOptions {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+		w.Header().Set("Access-Control-Max-Age", "3600")
+		w.WriteHeader(http.StatusNoContent)
+		return
+	}
+	// Set CORS headers for the main request.
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
 		return
@@ -35,11 +49,14 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 	email := reqBody.Email
 	hubspotAPIKey := os.Getenv("HUBSPOT_API_KEY")
-	hubspotAPIUrl := fmt.Sprintf("https://api.hubapi.com/contacts/v1/contact/createOrUpdate/email/%s", email)
+	hubspotAPIUrl := "https://api.hubapi.com/communication-preferences/v3/subscribe"
 
 	hubspotBody := HubspotBody{
 		Properties: []HubspotProperty{
-			{Property: "email", Value: email},
+			{Property: "emailAddress", Value: email},
+			{Property: "legalBasis", Value: "LEGITIMATE_INTEREST_CLIENT"},
+			{Property: "subscriptionId", Value: "366686542"},
+			{Property: "legalBasisExplanation", Value: "Subscribed Via Josh Portfolio Form"},
 		},
 	}
 
@@ -65,15 +82,19 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer resp.Body.Close()
 
+	b, err := io.ReadAll(resp.Body)
+	if err != nil {
+		http.Error(w, "Error Decoding Hubspot Body", http.StatusInternalServerError)
+	}
+
 	if resp.StatusCode >= 200 && resp.StatusCode < 300 {
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte("Subscription successful!"))
 	} else {
-		http.Error(w, "Subscription failed", resp.StatusCode)
+		http.Error(w, fmt.Sprintf("Subscription Failed: %s", string(b)), resp.StatusCode)
 	}
 }
 
-func main() {
-	http.HandleFunc("/subscribe", Handler)
-	http.ListenAndServe(":8080", nil)
+func init() {
+	functions.HTTP("Handler", handler)
 }

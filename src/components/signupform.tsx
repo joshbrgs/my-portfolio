@@ -10,10 +10,10 @@ const SubscribeForm = () => {
   ): Promise<void> => {
     event.preventDefault();
 
-    const BASEURI = process.env.REACT_APP_API_URL;
+    const BASEURI = import.meta.env.PUBLIC_APP_API_URL;
 
     try {
-      const response = await fetch(`${BASEURI}/subscribe`, {
+      const response = await fetch(`${BASEURI}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,10 +47,10 @@ const SubscribeForm = () => {
       className="flex flex-col items-center w-full space-y-10 my-20"
     >
       <div className="flex flex-col space-y-1 items-center">
-        <h2 className="outlined-text text-3xl lg:text-4xl xl:text-5xl font-bold lg:tracking-tight xl:tracking-tighter">
+        <h2 className="outlined-text text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold lg:tracking-tight xl:tracking-tighter">
           Become a Subscriber
         </h2>
-        <p className=" text-gray-500 text-lg lg:text-xl xl:text-2xl lg:tracking-tight xl:tracking-tighter">
+        <p className="px-12 text-gray-500 text-md md:text-lg lg:text-xl xl:text-2xl lg:tracking-tight xl:tracking-tighter">
           Get exclusive discounts and notifications of events!
         </p>
       </div>
@@ -58,26 +58,26 @@ const SubscribeForm = () => {
         onSubmit={handleSubmit}
         className="flex flex-col space-y-2"
       >
-        <div className="flex space-x-6">
+        <div className="flex flex-col items-center sm:items-baseline sm:flex-row sm:space-x-6">
           <input
             type="email"
             id="email"
             name="email"
             autoComplete="email"
-            className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="mb-8 sm:mb-0 shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             placeholder="Enter your email"
             value={email}
             onInput={(e) => setEmail((e.target as HTMLInputElement).value)}
             required
           />
           <button
-            className="bg-yellow-300 border-2 border-yellow-300 p-2 rounded hover:border-2 hover:border-black hover:bg-yellow-400"
+            className="w-full sm:w-auto bg-yellow-300 border-2 border-yellow-300 p-2 rounded hover:border-2 hover:border-black hover:bg-yellow-400"
             type="submit"
           >
             Subscribe
           </button>
         </div>
-        <p className="text-gray-500">
+        <p className="text-gray-500 text-xs sm:text">
           I care about your data. Read my{" "}
           <a
             href="/privacy"
