@@ -3,11 +3,11 @@ import Container from "@components/container.astro";
 import Hero from "@components/Hero.astro";
 import Layout from "@layouts/Layout.astro";
 import SectionStat from "@components/sectionStat.astro";
-import { Image } from "astro:assets";
-import badges from "../assets/Badges.png";
+import CertBanner from "@components/certbanner.tsx";
 import bachelors from "../assets/pittsburgh_panthers_logo_secondary_20199698.png";
 import masters from "../assets/penn_state_football.png";
 import Card from "@components/card.astro";
+import About from "@components/about.astro";
 ---
 
 <Layout title="">
@@ -18,10 +18,11 @@ import Card from "@components/card.astro";
       <SectionStat stat="+600" label="PRs" />
       <SectionStat stat="> 25" label="Projects" />
     </div>
-    <section class="parallax-section my-2 flex justify-center items-center">
-      <Image src={badges} alt="My badges earned in the Cloud Space" />
-    </section>
-    <div class="space-y-20 mb-10">
+    <div class="my-36">
+      <CertBanner />
+    </div>
+    <About />
+    <div class="space-y-20 -mt-20">
       <Card
         sourced={bachelors}
         altText="H2P - Pitt Panthers"

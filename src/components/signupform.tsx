@@ -51,7 +51,7 @@ const SubscribeForm = () => {
           Become a Subscriber
         </h2>
         <p className="px-12 text-gray-500 text-md md:text-lg lg:text-xl xl:text-2xl lg:tracking-tight xl:tracking-tighter">
-          Get exclusive discounts and notifications of events!
+          Get exclusive discounts and notifications
         </p>
       </div>
       <form

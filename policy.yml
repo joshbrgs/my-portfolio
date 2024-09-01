@@ -1,0 +1,6 @@
+constraint: constraints/iam.allowedPolicyMemberDomains
+listPolicy:
+  allowedValues:
+    - joshb.io
+    - thegenoa.cc
+    - mudget.finance
