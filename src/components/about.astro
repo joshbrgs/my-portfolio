@@ -1,15 +1,37 @@
-<section>
-  <h3 class="text-4xl font-bold">&#128075; Hello &#128075;</h3>
+---
+import ButtonLink from "@components/ButtonLink.tsx";
+---
+<section class="flex flex-col sm:flex-row w-full items-center sm:items-start sm:justify-between p-6 bg-white">
+  <!-- Text Section -->
+  <div class="sm:w-1/2">
+    <h3 class="text-5xl font-extrabold mb-6 text-black tracking-tighter inline-block">
+      &#128075; Hello &#128075;
+    </h3>
+    <p class="text-lg leading-relaxed font-sans tracking-wide text-gray-800 mb-12">
+      If you're here, you're probably curious about who I am. I'm a problem solver
+      and I empower others to bring their visions to life. I am passionate about
+      building innovative tech alongside great people. As an ENFJ (with a knack
+      for thinking too), I love trying new things, experimenting, and spending
+      time with friends and family. I'm a proud husband to the best wife ever, a
+      software engineer and architect, and an investor. When I'm not coding, you
+      might find me snowboarding, hiking, golfing, or sailing. Let's connect on
+      <a href="https://www.linkedin.com/in/burgess-josh" class="underline text-black font-bold hover:bg-yellow-300 hover:text-black px-1">LinkedIn</a>
+      or 
+      <a href="https://x.com/joshtheburgess" class="underline text-black font-bold hover:bg-yellow-300 hover:text-black px-1">X</a>
+      and see if we can create the next big thing together.
+    </p>
 
-  <p
-    class="w-full sm:w-1/2 mt-20 tracking-wide font-sans text-lg leading-relaxed">
-    If you're here, you're probably curious about who I am. I'm a problem solver
-    and I empower others to bring their visions to life. I am passionate for
-    building innovative tech alongside great people. As an ENFJ (with a knack
-    for thinking too), I love trying new things, experimenting, and spending
-    time with friends and family. I'm a proud husband to the best wife ever, a
-    software engineer and architect, and an investor. When I'm not coding, you
-    might find me snowboarding, hiking, golfing, or sailing. Let's connect on
-    LinkedIn or X and see if we can create the next big thing together.
-  </p>
+        <ButtonLink href="https://thegenoa.cc">Check out my Portfolio</ButtonLink>
+  </div>
+
+  <!-- Portrait Section -->
+  <div class="hidden sm:flex sm:w-1/2 justify-center items-center mt-15 sm:mt-0">
+    <div class="relative w-[350px] h-[350px] border-4 border-black shadow-[8px_8px_0_#000] bg-white">
+      <img
+        src="/images/me.jpg"
+        alt="Portrait"
+        class="object-cover w-full h-full"
+      />
+    </div>
+  </div>
 </section>

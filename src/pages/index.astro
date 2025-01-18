@@ -8,6 +8,7 @@ import bachelors from "../assets/pittsburgh_panthers_logo_secondary_20199698.png
 import masters from "../assets/penn_state_football.png";
 import Card from "@components/card.astro";
 import About from "@components/about.astro";
+import ButtonLink from "@components/ButtonLink.tsx";
 ---
 
 <Layout title="">
@@ -22,19 +23,22 @@ import About from "@components/about.astro";
       <CertBanner />
     </div>
     <About />
-    <div class="space-y-20 mb-10">
-      <Card
-        sourced={bachelors}
-        altText="H2P - Pitt Panthers"
-        title="Bachelors of Science in Business Administration"
-        message="Graduate of 2020"
-      />
-      <Card
-        sourced={masters}
-        altText="WE ARE ... PENN STATE"
-        title="Graduate Certificate in Software Design and Architecture"
-        message="Expected Graduation Date 2025"
-      />
-    </div>
+
+
+<div class="space-y-20 mb-10 p-6 bg-white">
+  <Card
+    sourced={bachelors}
+    altText="H2P - Pitt Panthers"
+    title="Bachelors of Science in Business Administration"
+    message="Graduate of 2020"
+  />
+  <Card
+    sourced={masters}
+    altText="WE ARE ... PENN STATE"
+    title="Graduate Certificate in Software Design and Architecture"
+    message="Expected Graduation Date 2025"
+  />
+</div>
+
   </Container>
 </Layout>

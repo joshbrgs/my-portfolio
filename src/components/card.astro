@@ -4,16 +4,28 @@ import {Image} from "astro:assets"
 const { sourced = "https://loremflickr.com/g/320/240/team", altText = "Prop", message, title, subtitle } = Astro.props;
 ---
 
-<div class="max-w-md mx-auto cursor-default bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-    <div class="md:flex">
-        <div class="md:shrink-0">
-          <Image class="h-48 w-full object-cover md:h-full md:w-48" inferSize={true} src={sourced} alt={altText}>
-        </div>
-        <div class="p-8">
-          <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{subtitle}</div>
-            <p class="block mt-1 text-lg leading-tight font-medium text-black">{title}
-            </p>
-            <p class="mt-2 text-slate-500">{message}            </p>
-        </div>
+
+<div class="max-w-md mx-auto cursor-default bg-yellow-300 border-4 border-black shadow-[10px_10px_0_#000] rounded-xl overflow-hidden md:max-w-2xl transition-transform duration-200 hover:-translate-y-2 hover:shadow-[12px_12px_0_#000]">
+  <div class="md:flex">
+    <div class="md:shrink-0">
+      <Image
+        class="h-48 w-full object-cover md:h-full md:w-48 border-r-4 border-black"
+        inferSize={true}
+        src={sourced}
+        alt={altText}
+      />
     </div>
+    <div class="p-6">
+      <div class="uppercase tracking-wider text-sm text-red-600 font-bold border-b-2 border-black pb-1 mb-3">
+        {subtitle}
+      </div>
+      <h3 class="text-lg font-extrabold text-black leading-snug">
+        {title}
+      </h3>
+      <p class="mt-2 text-sm font-medium text-gray-700">
+        {message}
+      </p>
+    </div>
+  </div>
 </div>
+
